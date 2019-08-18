@@ -13509,7 +13509,7 @@ button.bg-lighter:focus {
 }
 
 .bg-gradient-default {
-  background: linear-gradient(87deg, #172b4d 0, #1a174d 100%) !important;
+  background: linear-gradient(87deg, rgb(22,146,182) 0, rgb(22,146,182) 100%) !important;
 }
 
 .bg-gradient-white {
@@ -13804,7 +13804,7 @@ button.section-darker:focus {
 }
 
 .bg-gradient-default {
-  background: linear-gradient(87deg, #172b4d 0, #1a174d 100%) !important;
+  background: linear-gradient(87deg, rgb(22,146,182) 0, rgb(22,146,182) 100%) !important;
 }
 
 .bg-gradient-white {

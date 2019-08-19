@@ -128,7 +128,7 @@
                         <div class="input-group-prepend">
                           <span class="input-group-text"><i class="ni ni-hat-3" style="color: rgb(251,196,17)"></i></span>
                         </div>
-                        <input class="form-control" placeholder="Nombre" type="text">
+                        <input class="form-control" placeholder="Nombre" type="text" id="nombre">
                       </div>
                     </div>
                     <div class="form-group">
@@ -136,16 +136,20 @@
                         <div class="input-group-prepend">
                           <span class="input-group-text"><i class="ni ni-email-83" style="color: rgb(251,196,17)" ></i></span>
                         </div>
-                        <input class="form-control" placeholder="Correo electrónico" type="email">
+                        <input class="form-control" placeholder="Correo electrónico" type="email" id="correo">
+                        <div id="validar-correo" class=""></div>
                       </div>
+
                     </div>
                     <div class="form-group">
                       <div class="input-group input-group-alternative">
                         <div class="input-group-prepend">
                           <span class="input-group-text"><i class="ni ni-lock-circle-open" style="color: rgb(251,196,17)"></i></span>
                         </div>
-                        <input class="form-control" placeholder="Contraseña" type="password">
+                        <input class="form-control" placeholder="Contraseña" type="password" id="contrasena">
+                        <div id="validar-contrasena" class=""></div>
                       </div>
+
                     </div>
                     <div class="row my-4">
                       <div class="col-12">
@@ -158,7 +162,7 @@
                       </div>
                     </div>
                   <div class="text-center">
-                    <button type="button" class="btn btn-warning my-4">Ingresar</button>
+                    <button type="button" class="btn btn-warning my-4" id="btn-registro">Registrarse</button>
                   </div>
                 </form>
               </div>
@@ -169,6 +173,8 @@
     </div>
 
   </div>
+
+  
   <!--   Core   -->
   <script src="../assets/js/plugins/jquery/dist/jquery.min.js"></script>
   <script src="../assets/js/plugins/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
@@ -183,6 +189,8 @@
         application: "argon-dashboard-free"
       });
   </script>
+  <!--JS-->
+  <script src="../assets/js/controlador.js"></script>
 </body>
 
 </html>

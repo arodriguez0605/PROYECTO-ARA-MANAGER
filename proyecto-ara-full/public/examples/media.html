@@ -1,0 +1,756 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>
+      Banco Multimedia - Ara Manager
+    </title>
+    <!-- Favicon -->
+    <link rel= "shortcut icon" href="../assets/img/LogoAraManager.png">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+  <!-- Icons -->
+  <link href="../assets/js/plugins/nucleo/css/nucleo.css" rel="stylesheet" />
+  <link href="../assets/js/plugins/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet" />
+  <!-- CSS Files -->
+  <link href="../assets/css/argon-dashboard.css?v=1.1.0" rel="stylesheet" />
+</head>
+
+<body class="">
+    <nav class="navbar navbar-vertical fixed-left navbar-expand-md navbar-light bg-white" id="sidenav-main">
+      <div class="container-fluid">
+        <!-- Toggler -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sidenav-collapse-main" aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- Brand -->
+        <a class="navbar-brand pt-0" href="../index.html">
+          <img src="../assets/img/LogoAraFondo.png" class="" >
+        </a>
+        <!-- User -->
+        <ul class="nav align-items-center d-md-none">
+          <li class="nav-item dropdown">
+
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <div class="media align-items-center">
+                <span class="avatar avatar-sm rounded-circle">
+                  <img alt="Image placeholder" src="../assets/img/perfil.png">
+                </span>
+                <div> &nbsp Alejandra Rodríguez</div>
+              </div>
+            </a>
+            <div class="dropdown-menu dropdown-menu-arrow ">
+              <div class=" dropdown-header noti-title">
+                <h6 class="text-overflow m-0">Bienvenido</h6>
+              </div>
+              <a href="profile.html" class="dropdown-item">
+                <i class="ni ni-single-02"></i>
+                <span>Mi perfil</span>
+              </a>
+              <a href="profile.html" class="dropdown-item">
+                <i class="ni ni-settings-gear-65"></i>
+                <span>Configuración</span>
+              </a>
+              <a href="profile.html" class="dropdown-item">
+                <i class="ni ni-calendar-grid-58"></i>
+                <span>Actividad</span>
+              </a>
+              <a href="profile.html" class="dropdown-item">
+                <i class="ni ni-support-16"></i>
+                <span>Soporte</span>
+              </a>
+              <div class="dropdown-divider"></div>
+              <a href="login.html" class="dropdown-item">
+                <i class="ni ni-user-run"></i>
+                <span>Cerrar sesión</span>
+              </a>
+            </div>
+          </li>
+        </ul>
+        <!-- Collapse -->
+        <div class="collapse navbar-collapse" id="sidenav-collapse-main">
+          <!-- Collapse header -->
+          <div class="navbar-collapse-header d-md-none">
+            <div class="row">
+              <div class="col-6 collapse-brand">
+                <a href="../index.html">
+                  <img src="../assets/img/LogoAraFondo.png">Ara Manager
+                </a>
+              </div>
+              <div class="col-6 collapse-close">
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#sidenav-collapse-main" aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle sidenav">
+                  <span></span>
+                  <span></span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Form -->
+          <form class="mt-4 mb-3 d-md-none">
+            <div class="input-group input-group-rounded input-group-merge">
+              <input type="search" class="form-control form-control-rounded form-control-prepended" placeholder="Buscar" aria-label="Search">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <span class="fa fa-search"></span>
+                </div>
+              </div>
+            </div>
+          </form>
+          <!-- Barra de navegacion izquierda -->
+          <ul class="navbar-nav">
+            <li class="nav-item">
+            <a class=" nav-link  " href="../index.html"> <i class="ni ni-tv-2" style="color:rgb(82,190,196)"></i> Principal
+              </a>
+            </li>
+            <li class="nav-item class=" active"">
+              <a class="nav-link active" href="media.html">
+                <i class="fas fa-file-video text-yellow"></i> Multimedia
+              </a>
+            </li>
+            <!--<li class="nav-item">
+              <a class="nav-link " href="./examples/maps.html">
+                <i class="ni ni-pin-3 text-orange"></i> Maps
+              </a> -->
+            </li>
+            <li class="nav-item" >
+              <a class="nav-link" href="users.html">
+                <i class="ni ni-single-02" style="color: rgb(22, 146, 182)"></i> Usuarios
+              </a>
+            </li>
+            <li class="nav-item" >
+              <a class="nav-link" href="tables.html">
+                <i class="ni ni-bullet-list-67"  style="color:rgb(82,190,196)"></i> Entradas
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="categories.html">
+                  <i class="fas fa-columns text-yellow"></i> Categorías
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="register.html">
+                 <i class="fas fa-laptop-code"style="color: rgb(22, 146, 182)"></i> Plantillas
+              </a>
+            </li>
+          </ul>
+    </nav>
+    
+    
+    <div class="main-content">
+      <!-- Navbar -->
+      <nav class="navbar navbar-top navbar-expand-md navbar-dark" id="navbar-main">
+        <div class="container-fluid">
+          <!-- Brand -->
+          <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="./index.html">ARA MANAGER | BANCO MULTIMEDIA</a>
+          <!-- Form -->
+          <form class="navbar-search navbar-search-dark form-inline mr-3 d-none d-md-flex ml-lg-auto">
+            <div class="form-group mb-0">
+              <div class="input-group input-group-alternative">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-search"></i></span>
+                </div>
+                <input class="form-control" placeholder="Buscar" type="text">
+              </div>
+            </div>
+          </form>
+          <!-- User -->
+          <ul class="navbar-nav align-items-center d-none d-md-flex">
+            <li class="nav-item dropdown">
+              <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                <div class="media align-items-center">
+                  <span class="avatar avatar-sm rounded-circle">
+                    <img alt="Image placeholder" src="../assets/img/perfil.png">
+                  </span>
+                  <div class="media-body ml-2 d-none d-lg-block">
+                    <span class="mb-0 text-sm  font-weight-bold">Alejandra Rodríguez</span>
+                  </div>
+                </div>
+              </a>
+              <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right">
+                <div class=" dropdown-header noti-title">
+                  <h6 class="text-overflow m-0">Bienvenido</h6>
+                </div>
+                <a href="profile.html" class="dropdown-item">
+                  <i class="ni ni-single-02"></i>
+                  <span>Mi perfil</span>
+                </a>
+                <a href="" class="dropdown-item">
+                  <i class="ni ni-settings-gear-65"></i>
+                  <span>Configuración</span>
+                </a>
+                <a href="" class="dropdown-item">
+                  <i class="ni ni-calendar-grid-58"></i>
+                  <span>Actividad</span>
+                </a>
+                <a href="" class="dropdown-item">
+                  <i class="ni ni-support-16"></i>
+                  <span>Soporte</span>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="login.html" class="dropdown-item">
+                  <i class="ni ni-user-run"></i>
+                  <span>Cerrar sesión</span>
+                </a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    <!-- End Navbar -->
+    
+    
+    <!-- Nueva entrada y búsqueda -->
+    <div class="header bg-gradient-primary pb-8 pt-5 pt-md-8">
+      <div class="container-fluid">
+        <div class="header-body">
+          <!-- Card stats -->
+          <div class="row">
+            <div class="col-xl-6 col-lg-6">
+              <div class="card card-stats mb-4 mb-xl-0">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col">
+                      <h5 class="card-title text-uppercase text-muted mb-0">Banco de imágenes y vídeos</h5>
+                      <span class="h2 font-weight-bold mb-0">Utiliza los recursos que tenemos para tí en esta página  o sube tus propios recursos.</span>
+                    </div>
+                    <div class="col-auto">
+                      
+                      <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
+                          <i class="fas fa-file-video"></i>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="mt-3 mb-0 text-muted text-sm">
+                    <button class="btn btn-warning"
+                    data-toggle="modal" data-target="#modalMultimedia"  >Subir multimedia</button>
+
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!--Revisar actividad -->
+            <div class="col-xl-6 col-lg-6" style="margin-bottom: 30px">
+              <div class="card card-stats mb-4 mb-xl-0">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col">
+                      <h5 class="card-title text-uppercase text-muted mb-0">Archivos</h5>
+                      <span class="h2 font-weight-bold mb-0">También puedes subir tus propios archivos en cualquier formato e incluirlos en tus páginas</span>
+                    </div>
+                    <div class="col-auto">
+                      <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
+                        <i class="fas fa-users"></i>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="mt-3 mb-0 text-muted text-sm">
+                      <button class="btn btn-warning" data-toggle="modal" data-target="#modalArchivos" >Subir nuevo archivo</button>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid mt--7">
+        <!-- Iconos -->
+        <div class="row">
+          <div class="col">
+            <div class="card shadow">
+              <div class="card-header" style="background-color: rgb(82,190,196)">
+                <h3 class="mb-0 text-white">Iconos</h3>
+              </div>
+              <div class="card-body">
+                <div class="row icon-examples">
+                  <div class="col-lg-3 col-md-6">
+                    <button type="button" class="btn-icon-clipboard" data-clipboard-text="active-40" title="Copy to clipboard">
+                      <div>
+                        <i class="ni ni-active-40"></i>
+                        <span>active-40</span>
+                      </div>
+                    </button>
+                  </div>
+ 
+                  <div class="col-lg-3 col-md-6">
+                    <button type="button" class="btn-icon-clipboard" data-clipboard-text="note-03" title="Copy to clipboard">
+                      <div>
+                        <i class="ni ni-note-03"></i>
+                        <span>note-03</span>
+                      </div>
+                    </button>
+                  </div>
+                  <div class="col-lg-3 col-md-6">
+                    <button type="button" class="btn-icon-clipboard" data-clipboard-text="notification-70" title="Copy to clipboard">
+                      <div>
+                        <i class="ni ni-notification-70"></i>
+                        <span>notification-70</span>
+                      </div>
+                    </button>
+                  </div>
+                  <div class="col-lg-3 col-md-6">
+                    <button type="button" class="btn-icon-clipboard" data-clipboard-text="palette" title="Copy to clipboard">
+                      <div>
+                        <i class="ni ni-palette"></i>
+                        <span>palette</span>
+                      </div>
+                    </button>
+                  </div>
+
+
+                  <div class="col-lg-3 col-md-6">
+                    <button type="button" class="btn-icon-clipboard" data-clipboard-text="shop" title="Copy to clipboard">
+                      <div>
+                        <i class="ni ni-shop"></i>
+                        <span>shop</span>
+                      </div>
+                    </button>
+                  </div>
+                  <div class="col-lg-3 col-md-6">
+                    <button type="button" class="btn-icon-clipboard" data-clipboard-text="ungroup" title="Copy to clipboard">
+                      <div>
+                        <i class="ni ni-ungroup"></i>
+                        <span>ungroup</span>
+                      </div>
+                    </button>
+                  </div>
+                  <div class="col-lg-3 col-md-6">
+                    <button type="button" class="btn-icon-clipboard" data-clipboard-text="world-2" title="Copy to clipboard">
+                      <div>
+                        <i class="ni ni-world-2"></i>
+                        <span>world-2</span>
+                      </div>
+                    </button>
+                  </div>
+                  <div class="col-lg-3 col-md-6">
+                    <button type="button" class="btn-icon-clipboard" data-clipboard-text="ui-04" title="Copy to clipboard">
+                      <div>
+                        <i class="ni ni-ui-04"></i>
+                        <span>ui-04</span>
+                      </div>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer py-4">
+                  <nav aria-label="...">
+                    <ul class="pagination justify-content-end mb-0">
+                      <li class="page-item disabled">
+                        <a class="page-link" href="#" tabindex="-1">
+                          <i class="fas fa-angle-left "></i>
+                          <span class="sr-only">Previous</span>
+                        </a>
+                      </li>
+                      <li class="page-item active" >
+                        <a class="page-link" href="#">1</a>
+                      </li>
+                      <li class="page-item">
+                        <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+                      </li>
+                      <li class="page-item"><a class="page-link" href="#">3</a></li>
+                      <li class="page-item">
+                        <a class="page-link" href="#">
+                          <i class="fas fa-angle-right"></i>
+                          <span class="sr-only">Next</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+            </div>
+          </div>
+        </div>
+        <!--Imagenes-->
+        <div class="row">
+            <div class="col">
+              <div class="card shadow">
+                <div class="card-header" style="background-color: rgb(82,190,196)">
+                  <h3 class="mb-0 text-white">Imagenes</h3>
+                </div>
+                <div class="card-body">
+                  <div class="row icon-examples">
+
+                    <div class="col-lg-3 col-md-6">
+                      <button type="button" class="btn-icon-clipboard" data-clipboard-text="active-40" title="Copy to clipboard">
+                        <div>
+                          <img src="../assets/img/prueba/koala.jpg" style="height: 50px">
+                          <span><strong>Imagen 1</strong><br>
+                          imagen1.jpg</span>
+                        </div>
+                      </button>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <button type="button" class="btn-icon-clipboard" data-clipboard-text="active-40" title="Copy to clipboard">
+                          <div>
+                            <img src="../assets/img/prueba/desert.jpg" style="height: 50px">
+                            <span><strong>Imagen 1</strong><br>
+                            imagen1.jpg</span>
+                          </div>
+                        </button>
+                      </div>
+
+                      <div class="col-lg-3 col-md-6">
+                          <button type="button" class="btn-icon-clipboard" data-clipboard-text="active-40" title="Copy to clipboard">
+                            <div>
+                              <img src="../assets/img/prueba/Tulips.jpg" style="height: 50px">
+                              <span><strong>Imagen 1</strong><br>
+                              imagen1.jpg</span>
+                            </div>
+                          </button>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6">
+                            <button type="button" class="btn-icon-clipboard" data-clipboard-text="active-40" title="Copy to clipboard">
+                              <div>
+                                <img src="../assets/img/prueba/penguins.jpg" style="height: 50px">
+                                <span><strong>Imagen 1</strong><br>
+                                imagen1.jpg</span>
+                              </div>
+                            </button>
+                          </div>
+
+                          <div class="col-lg-3 col-md-6">
+                              <button type="button" class="btn-icon-clipboard" data-clipboard-text="active-40" title="Copy to clipboard">
+                                <div>
+                                  <img src="../assets/img/prueba/desert.jpg" style="height: 50px">
+                                  <span><strong>Imagen 1</strong><br>
+                                  imagen1.jpg</span>
+                                </div>
+                              </button>
+                            </div>
+
+                            <div class="col-lg-3 col-md-6">
+                                <button type="button" class="btn-icon-clipboard" data-clipboard-text="active-40" title="Copy to clipboard">
+                                  <div>
+                                    <img src="../assets/img/prueba/Jellyfish.jpg" style="height: 50px">
+                                    <span><strong>Imagen 1</strong><br>
+                                    imagen1.jpg</span>
+                                  </div>
+                                </button>
+                              </div>
+
+                              <div class="col-lg-3 col-md-6">
+                                  <button type="button" class="btn-icon-clipboard" data-clipboard-text="active-40" title="Copy to clipboard">
+                                    <div>
+                                      <img src="../assets/img/prueba/lighthouse.jpg" style="height: 50px">
+                                      <span><strong>Imagen 1</strong><br>
+                                      imagen1.jpg</span>
+                                    </div>
+                                  </button>
+                                </div>
+
+                                <div class="col-lg-3 col-md-6">
+                                    <button type="button" class="btn-icon-clipboard" data-clipboard-text="active-40" title="Copy to clipboard">
+                                      <div>
+                                        <img src="../assets/img/prueba/desert.jpg" style="height: 50px">
+                                        <span><strong>Imagen 1</strong><br>
+                                        imagen1.jpg</span>
+                                      </div>
+                                    </button>
+                                  </div>
+
+                    
+   
+   
+ 
+ 
+                      </button>
+                    </div>
+                  </div>
+                  <div class="card-footer py-4">
+                      <nav aria-label="...">
+                        <ul class="pagination justify-content-end mb-0">
+                          <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1">
+                              <i class="fas fa-angle-left "></i>
+                              <span class="sr-only">Previous</span>
+                            </a>
+                          </li>
+                          <li class="page-item active" >
+                            <a class="page-link" href="#">1</a>
+                          </li>
+                          <li class="page-item">
+                            <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+                          </li>
+                          <li class="page-item"><a class="page-link" href="#">3</a></li>
+                          <li class="page-item">
+                            <a class="page-link" href="#">
+                              <i class="fas fa-angle-right"></i>
+                              <span class="sr-only">Next</span>
+                            </a>
+                          </li>
+                        </ul>
+                      </nav>
+                    </div>
+                </div>
+
+              </div>
+            </div>
+
+        <!--Videos-->
+        <div class="row">
+            <div class="col">
+              <div class="card shadow">
+                <div class="card-header" style="background-color: rgb(82,190,196)">
+                  <h3 class="mb-0 text-white">Videos</h3>
+                </div>
+                <div class="card-body">
+                  <div class="row icon-examples">
+
+                    <div class="col-lg-3 col-md-6">
+                      <button type="button" class="btn-icon-clipboard" data-clipboard-text="active-40" title="Copy to clipboard">
+                        <div>
+                          <img src="../assets/img/prueba/koala.jpg" style="height: 50px">
+                          <span><strong>video 1</strong><br>
+                          video1.mp4</span>
+                        </div>
+                      </button>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <button type="button" class="btn-icon-clipboard" data-clipboard-text="active-40" title="Copy to clipboard">
+                          <div>
+                            <img src="../assets/img/prueba/desert.jpg" style="height: 50px">
+                            <span><strong>video 1</strong><br>
+                            video1.mp4</span>
+                          </div>
+                        </button>
+                      </div>
+
+                      <div class="col-lg-3 col-md-6">
+                          <button type="button" class="btn-icon-clipboard" data-clipboard-text="active-40" title="Copy to clipboard">
+                            <div>
+                              <img src="../assets/img/prueba/Tulips.jpg" style="height: 50px">
+                              <span><strong>video 1</strong><br>
+                              video1.mp4</span>
+                            </div>
+                          </button>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6">
+                            <button type="button" class="btn-icon-clipboard" data-clipboard-text="active-40" title="Copy to clipboard">
+                              <div>
+                                <img src="../assets/img/prueba/penguins.jpg" style="height: 50px">
+                                <span><strong>video 1</strong><br>
+                                video1.mp4</span>
+                              </div>
+                            </button>
+                          </div>
+
+                          <div class="col-lg-3 col-md-6">
+                              <button type="button" class="btn-icon-clipboard" data-clipboard-text="active-40" title="Copy to clipboard">
+                                <div>
+                                  <img src="../assets/img/prueba/desert.jpg" style="height: 50px">
+                                  <span><strong>video 1</strong><br>
+                                  video1.mp4</span>
+                                </div>
+                              </button>
+                            </div>
+
+                            <div class="col-lg-3 col-md-6">
+                                <button type="button" class="btn-icon-clipboard" data-clipboard-text="active-40" title="Copy to clipboard">
+                                  <div>
+                                    <img src="../assets/img/prueba/Jellyfish.jpg" style="height: 50px">
+                                    <span><strong>video 1</strong><br>
+                                    video1.mp4</span>
+                                  </div>
+                                </button>
+                              </div>
+
+                              <div class="col-lg-3 col-md-6">
+                                  <button type="button" class="btn-icon-clipboard" data-clipboard-text="active-40" title="Copy to clipboard">
+                                    <div>
+                                      <img src="../assets/img/prueba/lighthouse.jpg" style="height: 50px">
+                                      <span><strong>video 1</strong><br>
+                                      video1.mp4</span>
+                                    </div>
+                                  </button>
+                                </div>
+
+                                <div class="col-lg-3 col-md-6">
+                                    <button type="button" class="btn-icon-clipboard" data-clipboard-text="active-40" title="Copy to clipboard">
+                                      <div>
+                                        <img src="../assets/img/prueba/desert.jpg" style="height: 50px">
+                                        <span><strong>video 1</strong><br>
+                                        video1.mp4</span>
+                                      </div>
+                                    </button>
+                                  </div>
+
+                    
+   
+   
+ 
+ 
+                      </button>
+                    </div>
+                  </div>
+                  <div class="card-footer py-4">
+                      <nav aria-label="...">
+                        <ul class="pagination justify-content-end mb-0">
+                          <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1">
+                              <i class="fas fa-angle-left "></i>
+                              <span class="sr-only">Previous</span>
+                            </a>
+                          </li>
+                          <li class="page-item active" >
+                            <a class="page-link" href="#">1</a>
+                          </li>
+                          <li class="page-item">
+                            <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+                          </li>
+                          <li class="page-item"><a class="page-link" href="#">3</a></li>
+                          <li class="page-item">
+                            <a class="page-link" href="#">
+                              <i class="fas fa-angle-right"></i>
+                              <span class="sr-only">Next</span>
+                            </a>
+                          </li>
+                        </ul>
+                      </nav>
+                    </div>                  
+                </div>
+
+              </div>
+            </div>            
+          </div>
+ 
+      </div>
+ 
+  <!-- Modal de imagenes y videos-->
+  <div class="modal fade" id="modalMultimedia" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header bg-gradient-primary">
+              <h5 class="card-title text-uppercase  mb-0" style="color: white">Subir imagen o video</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+  <!--body modal-->
+                  <div class="card bg-secondary shadow">
+                    <div class="card-header bg-transparent pb-5">
+                      <form role="form">
+                          <div class="form-group">
+                            <div class="input-group input-group-alternative mb-3">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text"></span>
+                              </div>
+                              <input class="form-control" placeholder="Nombre del archivo" type="text">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <div class="input-group input-group-alternative mb-3">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text"></span>
+                              </div>
+                              <input class="form-control" placeholder="Descripción" type="text">
+                            </div>
+                          </div>
+                          <div class="input-group mb-3">
+                              <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="">
+                                <label class="custom-file-label" >Cargar imagen</label>
+                              </div>
+                            </div>
+                            
+           
+                        <div class="text-center">
+                          <button type="button" class="btn btn-warning my-4">Cargar recurso</button>
+                        </div>
+                      </form>
+                    </div>
+            </div>
+          </div>
+      
+  
+        </div>
+      </div>
+
+      
+        <!-- Modal de archivos-->
+  <div class="modal fade" id="modalArchivos" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header bg-gradient-primary">
+              <h5 class="card-title text-uppercase  mb-0" style="color: white">Subir un archivo</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+  <!--body modal-->
+                  <div class="card bg-secondary shadow">
+                    <div class="card-header bg-transparent pb-5">
+                      <form role="form">
+                          <div class="form-group">
+                            <div class="input-group input-group-alternative mb-3">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text"></span>
+                              </div>
+                              <input class="form-control" placeholder="Nombre del archivo" type="text">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <div class="input-group input-group-alternative mb-3">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text"></span>
+                              </div>
+                              <input class="form-control" placeholder="Descripción" type="text">
+                            </div>
+                          </div>
+                          <div class="input-group mb-3">
+                              <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="">
+                                <label class="custom-file-label" >Cargar archivo</label>
+                              </div>
+                            </div>
+                            
+           
+                        <div class="text-center">
+                          <button type="button" class="btn btn-warning my-4">Cargar recurso</button>
+                        </div>
+                      </form>
+                    </div>
+            </div>
+          </div>
+      
+  
+        </div>
+      </div>
+
+
+
+
+<!-- Footer -->
+<footer>
+    <div class="text-center py-3"> Sistemas Expertos 2019 <br>Gabriela Alejandra Aguilar Rodríguez
+    </div>
+  </footer>
+
+    </div>
+  </div>
+  <!--   Core   -->
+  <script src="../assets/js/plugins/jquery/dist/jquery.min.js"></script>
+  <script src="../assets/js/plugins/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <!--   Optional JS   -->
+  <!--   Argon JS   -->
+  <script src="../assets/js/argon-dashboard.min.js?v=1.1.0"></script>
+  <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
+  <script>
+    window.TrackJS &&
+      TrackJS.install({
+        token: "ee6fab19c5a04ac1a32a645abde4613a",
+        application: "argon-dashboard-free"
+      });
+  </script>
+</body>
+
+</html>

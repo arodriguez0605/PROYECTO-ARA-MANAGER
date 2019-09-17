@@ -3,8 +3,9 @@ const app = express();
 const hbs = require('hbs');
 require('./hbs/helpers');
 
-//Puerto Heroku
+//Puerto Heroku variable de entorno global
 const port = process.env.PORT || 3000;
+
 //Creamos un middelware que se ejecuta siempre sin importar la petición que el usuario haga:
 app.use(express.static(__dirname + '/public'));
 

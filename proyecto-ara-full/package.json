@@ -7,7 +7,7 @@
     "example": "root"
   },
   "scripts": {
-    "start":"node server.js", 
+    "start": "node server.js",
     "nodemon": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -49,7 +49,17 @@
   },
   "homepage": "http://demos.creative-tim.com/argon-dashboard/index.html",
   "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.19.0",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.4",
+    "ejs": "^2.7.1",
     "express": "^4.17.1",
-    "hbs": "^4.0.4"
+    "express-session": "^1.16.2",
+    "hbs": "^4.0.4",
+    "mongoose": "^5.7.1",
+    "morgan": "^1.9.1",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0"
   }
 }

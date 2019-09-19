@@ -1,15 +1,22 @@
+//MODULOS CARGADOS
 const express = require('express');
 const app = express();
 const hbs = require('hbs');
+const bodyParser = require ('body-parser');
+const database = require ('./modules/database');
+
 require('./hbs/helpers');
 
-//Puerto Heroku variable de entorno global
+//Puerto 
 const port = process.env.PORT || 3000;
 
-//Creamos un middelware que se ejecuta siempre sin importar la petición que el usuario haga:
+//Creamos un middleware que se ejecuta siempre sin importar la petición que el usuario haga:
 app.use(express.static(__dirname + '/public'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 
-//Express HBS engine
+
+//Express HBS engine mi motor de plantillas
 hbs.registerPartials(__dirname + '/views/parciales');
 app.set('view engine', 'hbs');
 
@@ -63,5 +70,5 @@ app.get('/registro',(req, res) => {
 
 
 app.listen(port, () => {
-    console.log(`Escuchando peticiones en el puerto ${ port }`);
+    console.log(`Escuchando peticiones en el puerto', ${port}`);
 });

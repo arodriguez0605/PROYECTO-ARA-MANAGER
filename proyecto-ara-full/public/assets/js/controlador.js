@@ -74,7 +74,7 @@ var campos = [
     if (loginValido){
   
       $.ajax({
-        url: "/registro",
+        url: "/api/registro",
         method: "POST",
         dataType: "json",
         data: {
@@ -88,7 +88,7 @@ var campos = [
           console.log(`mensaje del servidor2: ${response.mensaje}`);   
           
           if (response.estatus == 1){
-            window.location.href = "principal";
+            window.location.href = "/dash-carpeta.html";
           } else {
             // Mensaje de Error
             $.alert({
@@ -108,8 +108,7 @@ var campos = [
                   keys: ['enter', 'shift']
                 }
               }
-            }); 
-
+            });
           }
         },
         error: function (error){
@@ -133,14 +132,14 @@ var campos = [
                 keys: ['enter', 'shift']
               }
             }
-          }); 
+          });
         }
-      }); 
+      });
   
   
   
     }
-      window.location.href = "dash-carpeta.html";
+      //window.location.href = "dash-carpeta.html";
   });
 
  //------------FIN VALIDACIONES REGISTRO-------------
@@ -215,7 +214,7 @@ $("#btn-login").click(function(){
   if (loginValido){
     //console.log('Ingresar al Login')
     $.ajax({
-      url: "/principal",
+      url: "/api/login",
       method: "POST",
       dataType: "json",
       data: {
@@ -355,4 +354,5 @@ window.fbAsyncInit = function() {
 
 //-----------FIN VALIDACIONES LOGIN---------
 
+  
   

@@ -1,53 +1,72 @@
 //MODULOS CARGADOS
 const express = require('express');
 const app = express();
-
 const hbs = require('hbs');
 const bodyParser = require ('body-parser');
 const database = require ('./modules/database');
 
-//Otros módulos
-const path =require('path');
-const mongoose =require('mongoose');
-const passport =require('passport');
-const flash =require('connect-flash');
-const morgan =require('morgan');
-const cookieParser =require('cookie-parser');
-const session =require('express-session');
-
-//REQUIRES
-//Acceso a los helpers de HBS
 require('./hbs/helpers');
-//require('./routes')(app, passport); //para poder conseguir autenticación dentro de estas rutas 
-//require('./modules/passport')(passport);
-//CONFIGURACIONES 
+
+//Puerto 
 const port = process.env.PORT || 3000;
 
-//Creamos middleware que se ejecuta siempre sin importar la petición que el usuario haga:
-//MIDDLEWARES
-app.use(morgan('dev')); //ver msjs por consola
-app.use(cookieParser()); //interpretar las cookies
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true})); //interpretar la información de los formularios a través de la url
-app.use(session({
-    secret: 'proyectoaramanager',
-    resave: false, //que no se guarde cada cierto tiempo
-    saveUninitialized: false
-})); //manejar sesiones de express
-app.use(passport.initialize()); //como nos vamos a autenticar
-app.use(passport.session()); //unirlo a las sesiones, para no pedir la información en ls BD sino en el navegador
-app.use(flash());//mensajes entre distintas páginas html
-
-//Routes
-require('./routes/routes')(app, passport); //para poder conseguir autenticación dentro de estas rutas 
-require('./modules/passport')(passport);
-//STATIC FILES
+//Creamos un middleware que se ejecuta siempre sin importar la petición que el usuario haga:
 app.use(express.static(__dirname + '/public'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+
 
 //Express HBS engine mi motor de plantillas
 hbs.registerPartials(__dirname + '/views/parciales');
 app.set('view engine', 'hbs');
 
+//Paginas
+app.get('/',(req, res) => {
+ 
+    res.render('principal', {
+        Pagina: 'Principal'
+    });
+});
+
+app.get('/principal',(req, res) => {
+ 
+    res.render('principal');
+});
+
+app.get('/multimedia',(req, res) => {
+ 
+    res.render('multimedia');
+});
+
+app.get('/perfil',(req, res) => {
+ 
+    res.render('perfil');
+});
+
+app.get('/usuarios',(req, res) => {
+ 
+    res.render('usuarios');
+});
+
+app.get('/categorias',(req, res) => {
+ 
+    res.render('categorias');
+});
+
+app.get('/entradas',(req, res) => {
+ 
+    res.render('entradas');
+});
+
+app.get('/login',(req, res) => {
+ 
+    res.render('login');
+});
+
+app.get('/registro',(req, res) => {
+ 
+    res.render('registro');
+});
 
 
 app.listen(port, () => {

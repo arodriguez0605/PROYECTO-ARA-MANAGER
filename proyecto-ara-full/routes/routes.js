@@ -15,32 +15,26 @@ module.exports = (app, passport) => {
 //Rutas
 app.get('/',(req, res) => {
  
-    res.render('login', {
-        Pagina: 'Login'
+    res.render('login')
     });
-});
 
 app.get('/login',(req, res) => {
  
-    res.render('login', {
-                message: req.flash('loginMessage')
-            });
+    res.render('login');
 });
 
 //app.post('/login',passport.authenticate(''));
 
 app.get('/registro',(req, res) => {
  
-    res.render('registro', {
-        message: req.flash('signupmessage')
-    });
+    res.render('registro');
 }); 
 
-app.post('/registro',passport.authenticate('local-signup', {
+/*app.post('/registro',passport.authenticate('local-signup', {
     successRedirect: '/principal',
     failureRedirect: '/registro',
     failureFlash: true
-})); 
+})); */
 
 app.get('/principal',(req, res) => {
  

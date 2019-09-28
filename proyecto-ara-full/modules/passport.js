@@ -1,5 +1,5 @@
 //Estrategia local para autenticarnos de diversas formas
-
+/*
 const LocalStrategy = require ('passport-local').Strategy;
 
 const User = require('../models/user');
@@ -79,3 +79,4 @@ module.exports = function(passport){
         })
     }));
 }
+*/

@@ -32,7 +32,7 @@ const userSchema = new mongoose.Schema({
 
 //Función que recibe la contraseña y la cifra
 //genera el HASH
-userSchema.methods.generateHash  = function(password){
+/*userSchema.methods.generateHash  = function(password){
     return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
 };
 
@@ -43,3 +43,4 @@ userSchema.methods.validPassword = function (password){
 
 module.exports = mongoose.model('User', userSchema);
 
+*/

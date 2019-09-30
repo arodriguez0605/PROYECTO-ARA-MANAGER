@@ -5,7 +5,7 @@ var db = 'ara_manager';
 
 class Database{
     constructor(){
-        //Promesas
+        // Promesas
         mongoose.connect(`mongodb://${servidor}/${db}`)
         .then(()=>{
             console.log('Se conecto a mongo');

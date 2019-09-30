@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>
+      Principal - Ara Manager
+    </title>
+     <script src="./ckeditor/ckeditor.js"></script>  
+      <!-- Favicon -->
+    <link rel= "shortcut icon" href="assets/img/LogoAraManager.png">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+  <!-- Icons -->
+  <link href="./assets/js/plugins/nucleo/css/nucleo.css" rel="stylesheet" />
+  <link href="./assets/js/plugins/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet" />
+  <!-- CSS Files -->
+  <link href="./assets/css/argon-dashboard.css?v=1.1.0" rel="stylesheet" />
+
+
+
+</head>
+<body>
+        {{> navbar}}  
+    <!--Nueva entrada y búsqueda -->
+    <div class="header bg-gradient-primary pb-8 pt-5 pt-md-8">
+            <div class="container-fluid">
+              <div class="header-body">
+      
+            </div>
+            </div>
+          </div> 
+          <div class="container-fluid mt--7">
+            <!-- Table -->
+          <div class="row">
+              <div class="col">
+                <div class="card shadow">
+                  <div class="card-header border-0">
+                    <h3 class="mb-0">Entradas | Editor de texto</h3>
+                  </div>
+                  <div class="table-responsive" align="center">
+                     <table class="table align-items-center table-flush">
+                      <thead class="thead-light"> 
+        <textarea name="" id="editor1" cols="120" rows="10"></textarea>
+                      </thead>
+                    </table> 
+                  </div>
+                  <div class="card-footer py-4">
+                        <nav aria-label="...">
+        
+                        </nav>
+                      </div>
+            </div>
+
+
+
+
+<script type="text/javascript">
+    CKEDITOR.replace("editor1");
+</script>
+</body>
+{{> footer}}
+</html>

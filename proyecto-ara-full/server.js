@@ -73,7 +73,6 @@ app.get('/editor',(req, res) => {
     res.render('editor');
 }); 
 
-
 app.listen(port, () => {
     console.log(`Escuchando peticiones en el puerto', ${port}`);
 });

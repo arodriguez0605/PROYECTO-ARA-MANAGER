@@ -13,7 +13,7 @@
       <div class="container-fluid d-flex align-items-center">
         <div class="row">
           <div class="col-lg-7 col-md-10">
-            <h1 class="display-2 text-white">Hola Alejandra</h1>
+            <h1 class="display-2 text-white">Hola <span id="perfil-usuario"></span></h1>
             <p class="text-white mt-0 mb-5">Esta es tu página de perfil. Puedes acceder a tu información y modificarla en cualquier momento.</p>
             <a href="#!" class="btn btn-warning">Editar perfil</a>
           </div>
@@ -37,7 +37,7 @@
             <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
               <div class="d-flex justify-content-between">
                 <a href="#" class="btn btn-sm btn-warning mr-4">Cambiar</a>
- <!--              <a href="#" class="btn btn-sm btn-default float-right">Message</a>--> 
+            <!--<a href="#" class="btn btn-sm btn-default float-right">Message</a>--> 
               </div>
             </div>
             <div class="card-body pt-0 pt-md-4">
@@ -48,7 +48,7 @@
                       <span class="heading">22</span>
                       <span class="description">Entradas</span>
                     </div>
-             <!--     <div>
+                <!--<div>
                       <span class="heading">10</span>
                       <span class="description">Archivos</span>
                     </div> -->  
@@ -74,7 +74,6 @@
                 </div>
                 <hr class="my-4" />
                 <p>Este es mi proyecto de Sistemas Expertos del segundo periodo del año 2019</p>
-
               </div>
             </div>
           </div>
@@ -127,14 +126,15 @@
                   <div class="row">
                       <div class="col-lg-6">
                         <div class="form-group">
-                          <label class="form-control-label" for="input-first-name">Fecha de nacimiento</label>
+                          <label class="form-control-label" for="input-date">Fecha de nacimiento</label>
                           <input type="date" id="input-date" class="form-control form-control-alternative" placeholder="" value="">
                         </div>
                       </div>
+
                       <div class="col-lg-6">
                         <div class="form-group">
-                          <label class="form-control-label" for="input-last-name">Contraseña</label>
-                          <input type="password" id="input-last-name" class="form-control form-control-alternative" placeholder="" value="asd.456">
+                          <label class="form-control-label" for="input-password">Contraseña</label>
+                          <input type="password" id="input-password" class="form-control form-control-alternative" placeholder="" value="asd.456">
                         </div>
                       </div>
                     </div>
@@ -142,14 +142,15 @@
                     <div class="row">
                         <div class="col-lg-6">
                           <div class="form-group">
-                            <label class="form-control-label" for="input-first-name">Ocupación</label>
-                            <input type="text" id="input-date" class="form-control form-control-alternative" placeholder="" value="Estudiante de ingeniería en Sistemas">
+                            <label class="form-control-label" for="input-job">Ocupación</label>
+                            <input type="text" id="input-job" class="form-control form-control-alternative" placeholder="" value="Estudiante de ingeniería en Sistemas">
                           </div>
                         </div>
+
                         <div class="col-lg-6">
                           <div class="form-group">
-                            <label class="form-control-label" for="input-last-name">Lugar de trabajo/estudio</label>
-                            <input type="text" id="input-last-name" class="form-control form-control-alternative" placeholder="" value="Universidad Nacional Autónoma">
+                            <label class="form-control-label" for="input-work-place">Lugar de trabajo/estudio</label>
+                            <input type="text" id="input-work-place" class="form-control form-control-alternative" placeholder="" value="Universidad Nacional Autónoma">
                           </div>
                         </div>
                       </div>
@@ -166,6 +167,7 @@
                       </div>
                     </div>
                   </div>
+
                   <div class="row">
                     <div class="col-lg-4">
                       <div class="form-group">
@@ -173,12 +175,14 @@
                         <input type="text" id="input-city" class="form-control form-control-alternative" placeholder="City" value="Tegucigalpa">
                       </div>
                     </div>
+
                     <div class="col-lg-4">
                       <div class="form-group">
                         <label class="form-control-label" for="input-country">País</label>
                         <input type="text" id="input-country" class="form-control form-control-alternative" placeholder="Country" value="Honduras">
                       </div>
                     </div>
+
                     <div class="col-lg-4">
                       <div class="form-group">
                         <label class="form-control-label" for="input-country">Código postal</label>

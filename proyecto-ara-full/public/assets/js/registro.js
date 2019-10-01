@@ -1,4 +1,3 @@
-
 //-------------------VALIDACIONES DE REGISTRO-------------------------------------
 var campos = [
   {campo: 'nombre', expresion: /^[a-zA-Z0-9]([._](?![._])|[a-zA-Z0-9]){4,20}[a-zA-Z0-9]$/, 
@@ -87,13 +86,11 @@ $("#btn-registro").click(function(){
         "email": $('#correo').val(),
       },
       success: function (response){
-        //console.log(`mensaje del servidor: ${response}`);
-        //console.log(`mensaje del servidor1: ${response.estatus}`);
-        //console.log(`mensaje del servidor2: ${response.mensaje}`);   
+        //console.log(`mensaje del servidor: ${response}`); 
         
         if (response.auth == true){
-          //window.location.href = "/dash-carpeta.html";
-          console.log(`LOGEADO`);
+          console.log(`Reigstrado`);
+          window.location.href = "/login";
         } else {
           // Mensaje de Error
           $.alert({

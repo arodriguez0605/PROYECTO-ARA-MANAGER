@@ -16,6 +16,7 @@ function registrarUsuario (req, res) {
     if (err) return res.status(500).send("Hubo un problema registrando el usuario.")
     
     // create a token
+    // Generated jwts will include an iat (issued at) claim by default
     var token = jwt.sign({ id: user._id }, config.secret, {
       expiresIn: 86400 // Expira en 24 horas
     });
@@ -40,8 +41,7 @@ function me (req, res) {
       function (err, user) {
         if (err) return res.status(500).send("Hubo un problema buscando el usuario.");
         if (!user) return res.status(404).send("No se encontró el usuario.");
-        
-        res.status(200).send(user);
+        res.status(200).send({auth:true, mensaje:'Se retorna el usuario', user: user});
     });
 
   });
@@ -50,19 +50,19 @@ function me (req, res) {
 function loginUsuario(req, res) {
 
   User.findOne({ email: req.body.email }, function (err, user) {
-    if (err) return res.status(500).send('Error en el servidor.');
+    if (err) return res.status(500).send({mensaje: 'Error en el servidor.'});
     
-    if (!user) return res.status(404).send('No se encontró el usuario.');
+    if (!user) return res.status(404).send({mensaje: 'No se encontró el usuario.'});
     
     var passwordIsValid = bcrypt.compareSync(req.body.password, user.password);
     
-    if (!passwordIsValid) return res.status(401).send({ auth: false, token: null });
+    if (!passwordIsValid) return res.status(401).send({ mensaje: 'Credenciales Invalidas.', auth: false, token: null });
     
     var token = jwt.sign({ id: user._id }, config.secret, {
       expiresIn: 86400 // Expira en 24 horas
     });
     
-    res.status(200).send({ auth: true, token: token });
+    res.status(200).send({ auth: true, token: token, user: user});
   });
   
 };

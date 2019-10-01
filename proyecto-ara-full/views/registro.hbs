@@ -11,10 +11,10 @@
       <!-- Fonts -->
       <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
       <!-- Icons -->
-      <link href="../assets/js/plugins/nucleo/css/nucleo.css" rel="stylesheet" />
-      <link href="../assets/js/plugins/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet" />
+      <link href="../assets/js/plugins/nucleo/css/nucleo.css" rel="stylesheet"/>
+      <link href="../assets/js/plugins/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet"/>
       <!-- CSS Files -->
-      <link href="../assets/css/argon-dashboard.css?v=1.1.0" rel="stylesheet" />
+      <link href="../assets/css/argon-dashboard.css?v=1.1.0" rel="stylesheet"/>
       <!-- JQuery Confirm -->
       <link href="../assets/js/plugins/jquery-confirm/css/jquery-confirm.css" rel="stylesheet"/>
     </head>
@@ -56,18 +56,21 @@
                     <span class="nav-link-inner--text"  >Principal</span>
                   </a>
                 </li>
-                <li class="nav-item">
+
+                {{!-- <li class="nav-item">
                   <a class="nav-link nav-link-icon" href="/registro">
                     <i class="ni ni-circle-08"></i>
                     <span class="nav-link-inner--text">Registro</span>
                   </a>
-                </li>
+                </li> --}}
+
                 <li class="nav-item">
                   <a class="nav-link nav-link-icon" href="/login">
                     <i class="ni ni-key-25"></i>
                     <span class="nav-link-inner--text">Inicio de sesión</span>
                   </a>
                 </li>
+
                 <li class="nav-item">
                   <a class="nav-link nav-link-icon" href="../examples/profile.html">
                     <i class="ni ni-single-02"></i>
@@ -101,7 +104,7 @@
         </div>
 
         <!-- Page content -->
-        <div class="container mt--8 pb-5">
+        <div class="container mt--8 pb-4">
           <div class="row justify-content-center">
             <div class="col-lg-5 col-md-7">
               <div class="card bg-secondary shadow">
@@ -131,9 +134,9 @@
                     <div class="form-group">
                       <div class="input-group input-group-alternative mb-3">
                         <div class="input-group-prepend">
-                          <span class="input-group-text"><i class="ni ni-hat-3" style="color: rgb(251,196,17)"></i></span>
+                          <span class="input-group-text"><i class="ni ni-circle-08" style="color: rgb(251,196,17)"></i></span>
                         </div>
-                        <input class="form-control" placeholder="Nombre" type="text" id="nombre">
+                        <input class="form-control pl-2" placeholder="Nombre" type="text" id="nombre">
                         <div id="validar-nombre" class=""></div>
                       </div>
                     </div>
@@ -143,7 +146,7 @@
                         <div class="input-group-prepend">
                           <span class="input-group-text"><i class="ni ni-email-83" style="color: rgb(251,196,17)" ></i></span>
                         </div>
-                        <input class="form-control" placeholder="Correo electrónico" type="email" id="correo">
+                        <input class="form-control pl-2" placeholder="Correo electrónico" type="email" id="correo">
                         <div id="validar-correo" class=""></div>
                       </div>
                     </div>
@@ -153,7 +156,7 @@
                         <div class="input-group-prepend">
                           <span class="input-group-text"><i class="ni ni-lock-circle-open" style="color: rgb(251,196,17)"></i></span>
                         </div>
-                        <input class="form-control" placeholder="Contraseña" type="password" id="contrasena">
+                        <input class="form-control pl-2" placeholder="Contraseña" type="password" id="contrasena">
                         <div id="validar-contrasena" class=""></div>
                       </div>
                     </div>

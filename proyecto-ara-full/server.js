@@ -65,6 +65,10 @@ app.get('/editor', verificarAuth, (req, res) => {
     res.render('editor');
 });
 
+app.get('/editor2', verificarAuth, (req, res) => {
+  res.render('editor2');
+});
+
 // Si redirige a una página que no existe devuelve a la principal
 app.get('*', (req, res) => {
   if (req.session.user){

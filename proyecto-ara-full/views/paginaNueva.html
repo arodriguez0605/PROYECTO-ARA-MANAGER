@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Editor de código</title>
+    <!--Agrega Bootstrap-->
+    <link rel="stylesheet" href="../public/assets/css/bootstrap.min.editor.css">
+
+    <!-- Code Mirror CSS and Addons -->
+    <link rel="stylesheet" type="text/css" href="../public/codemirror/lib/codemirror.css"> 
+    <link rel="stylesheet" type="text/css" href="../public/codemirror/addon/scroll/simplescrollbars.css">
+</head>
+<body>
+
+   <!--Inicio de editores-->
+   <div class="container-fluid">
+        <div class="row justify-content-center mb-4">
+          <div class="col-12" style="padding: 0px;">
+            <!--<button id="generar" type="button" class="btn btn-primary">Generar Html</button>-->
+            <!--<a href="#my-header" onclick='saveTextAsFile()'>Save/Download</a>-->
+  
+            <div class="row no-gutters">
+              <div class="col-12 col-md-4">
+  
+                <div class="row no-gutters m-1 shadow-sm">
+                  <div class="col-12">
+                    <textarea id="html" name="html" placeholder="Escriba su código HTML"></textarea>
+                  </div>
+  
+                  <div class="form-group d-none">
+                    <input type="hidden" class="form-control" id="id-html" name="id-html">
+                  </div>
+  
+                </div>
+              </div>
+  
+              <div class="col-12 col-md-4">
+                <div class="row no-gutters m-1 shadow-sm">
+  
+                  <div class="col-12">
+                    <textarea id="css" name="css" placeholder="Escriba su código CSS"></textarea>
+                  </div>
+  
+                  <div class="form-group d-none">
+                    <input type="hidden" class="form-control" id="id-css" name="id-css">
+                  </div>
+                  
+                </div>
+              </div>
+  
+              <div class="col-12 col-md-4">
+                  <div class="row no-gutters m-1 shadow-sm">
+                    
+                    <div class="col-12">
+                      <textarea id="javascript" name="javascript" placeholder="Escriba su código Javascript"></textarea>
+                    </div>
+  
+                    <div class="form-group d-none">
+                      <input type="hidden" class="form-control" id="id-javascript" name="id-javascript">
+                    </div>
+                  </div>
+              </div>
+  
+              <div class="col-12 col-md-4">
+                
+                  <div class="col-12 font-weight-bolder mb-1">
+                    <span class="btn btn-warning btn-file mr-1 mb-1 font-color" onclick="correrProyecto()">
+                      <i class="fas fa-play font-blue"></i>
+                      Vista previa
+                    </span> 
+                  </div>
+                                    
+                  </div>
+                </div>
+                <div class="col-12">
+                    <iframe height="300" id="resultado" style="border:none; width: 100%; background-color: #f8f9fc">
+                     <!-- Aqui se muestra el resultado del editor -->
+                    </iframe>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+   <!--Fin de Editores-->
+    
+<!--Scripts editor-->
+<script type="text/javascript" src="../public/codemirror/lib/codemirror.js"></script> 
+<script type="text/javascript" src="../public/codemirror/mode/javascript/javascript.js"></script>
+<script type="text/javascript" src="../public/codemirror/mode/xml/xml.js"></script>
+<script type="text/javascript" src="../public/codemirror/mode/css/css.js"></script>
+
+<script type="text/javascript" src="../public/codemirror/addon/scroll/simplescrollbars.js"></script>
+<script type="text/javascript" src="../public/codemirror/addon/display/placeholder.js"></script>
+<script type="text/javascript" src="../public/assets/js/editor.js"></script> 
+<!-- Fin Scripts editor-->
+</body>
+</html>

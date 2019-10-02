@@ -1,4 +1,4 @@
-//-------------------VALIDACIONES DE REGISTRO-------------------------------------
+//------------------- VALIDACIONES DE REGISTRO -------------------------------------
 var campos = [
   {campo: 'nombre', expresion: /^[a-zA-Z0-9]([._](?![._])|[a-zA-Z0-9]){4,20}[a-zA-Z0-9]$/, 
   formato: 'El usuario debe tener entre 6 a 20 caracteres, sin espacios, y puede llevar (_) ó (.) en medio.', 
@@ -70,10 +70,6 @@ $("#btn-registro").click(function(){
     }
   }
 
-  console.log("Nombre Usuario: "+ $('#nombre').val());
-  console.log("correo: "+ $('#correo').val())
-  console.log("contrasena: "+ $('#contrasena').val())
-      
   if (loginValido){
 
     $.ajax({
@@ -86,16 +82,16 @@ $("#btn-registro").click(function(){
         "email": $('#correo').val(),
       },
       success: function (response){
-        //console.log(`mensaje del servidor: ${response}`); 
+        //console.log(`mensaje del servidor: ${response.mensaje}`); 
         
         if (response.auth == true){
-          console.log(`Reigstrado`);
-          window.location.href = "/login";
+          //console.log(`Reigstrado con éxito`);
+          window.location.href = "/login"; // Redirecciona al Login
         } else {
           // Mensaje de Error
           $.alert({
             title: 'Error al registrarse',
-            content: response,
+            content: response.mensaje,
             type: 'red',
             typeAnimated: true,
             icon: 'fas fa-exclamation-triangle',
@@ -113,17 +109,20 @@ $("#btn-registro").click(function(){
           });
         }
       },
-      error: function (error){
+      error: function (xhr, status, error){
+        var err = JSON.parse(xhr.responseText);
+        //console.error(`Error mensaje: ${err.mensaje}`);
+
         // Mensaje de Error
         $.alert({
-          title: '',
-          content: error,
+          title: 'Error en el registro',
+          content: err.mensaje,
           type: 'red',
           typeAnimated: true,
           icon: 'fas fa-exclamation-triangle',
           closeIcon: true,
           closeIconClass: 'fas fa-times',
-          autoClose: 'cerrar|5000', // Tiempo para cerrar el mensaje
+          //autoClose: 'cerrar|5000', // Tiempo para cerrar el mensaje
           theme: 'modern', // Acepta propiedades CSS
           buttons: {
             cerrar: {
@@ -136,6 +135,5 @@ $("#btn-registro").click(function(){
       }
     });
   }
-    //window.location.href = "dash-carpeta.html";
 });
- //------------FIN VALIDACIONES REGISTRO-------------
+ //------------ FIN VALIDACIONES REGISTRO -------------

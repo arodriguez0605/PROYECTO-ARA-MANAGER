@@ -55,15 +55,11 @@ $("#btn-login").click(function(){
 
   for (var i=0; i<campos.length; i++){
     if (!campos[i].valido){
-      return loginValido = false;
+      return loginValido = false; // Sale de la función con el return
     } else {
       loginValido = true;
     }
   }
-
-  // console.log(`Validación: ${loginValido}`);
-  // console.log("correo: "+ $('#correo').val())
-  // console.log("contrasena: "+ $('#contrasena').val())
 
   if (loginValido){
     //console.log('Ingresar al Login')
@@ -77,15 +73,14 @@ $("#btn-login").click(function(){
       },
       success: function (response){
         // console.log(`mensaje del servidor, auth: ${response.auth}`);
-        // console.log(`mensaje del servidor, user: ${response.user.name}`);
-        // console.log(`mensaje del servidor, user: ${response.user.email}`);
 
         if (response.auth == true){
           //console.log(`LOGEADO`);
-          // Se guarda el Token en el sessionStorage para futuras peticiones
+
+          // Se guarda el Token en el sessionStorage para futuras peticiones con AJAX
           sessionStorage.setItem('Token', response.token);
           
-          window.location.href = "/principal";
+          window.location.href = "/principal"; // Redirecciona a la página principal
         } else {
           // Mensaje de Error
           $.alert({
@@ -96,7 +91,7 @@ $("#btn-login").click(function(){
             icon: 'fas fa-exclamation-triangle',
             closeIcon: true,
             closeIconClass: 'fas fa-times',
-            autoClose: 'cerrar|5000', // Tiempo para cerrar el mensaje
+            //autoClose: 'cerrar|5000', // Tiempo para cerrar el mensaje
             theme: 'modern', // Acepta propiedades CSS
             buttons: {
               cerrar: {
@@ -110,7 +105,7 @@ $("#btn-login").click(function(){
       },
       error: function (xhr, status, error){
         var err = JSON.parse(xhr.responseText);
-        //console.error(`Error mensaje2: ${err.mensaje}`);
+        //console.error(`Error mensaje: ${err.mensaje}`);
 
         // Mensaje de Error
         $.alert({
@@ -121,7 +116,7 @@ $("#btn-login").click(function(){
           icon: 'fas fa-exclamation-triangle',
           closeIcon: true,
           closeIconClass: 'fas fa-times',
-          autoClose: 'cerrar|5000', // Tiempo para cerrar el mensaje
+          //autoClose: 'cerrar|5000', // Tiempo para cerrar el mensaje
           theme: 'modern', // Acepta propiedades CSS
           buttons: {
             cerrar: {
@@ -135,83 +130,81 @@ $("#btn-login").click(function(){
     });
   }
 });
-//-----------FIN VALIDACIONES LOGIN---------
+//----------- FIN VALIDACIONES LOGIN ---------
 
-function logInFB(){ 
-  FB.login(function(response) {
-    console.log(response);
-    if (response.status=="connected"){
-      FB.api('/me?fields=id,name,first_name,last_name,email', function(datosUsuario) {
-        var parametros = {
-          facebookId: datosUsuario.id,
-          nombre: datosUsuario.first_name,
-          apellido: datosUsuario.last_name,
-          correo: datosUsuario.email
-        };
+// function logInFB(){ 
+//   FB.login(function(response) {
+//     console.log(response);
+//     if (response.status=="connected"){
+//       FB.api('/me?fields=id,name,first_name,last_name,email', function(datosUsuario) {
+//         var parametros = {
+//           facebookId: datosUsuario.id,
+//           nombre: datosUsuario.first_name,
+//           apellido: datosUsuario.last_name,
+//           correo: datosUsuario.email
+//         };
       
-        $.ajax({
-          url: "/api/fblogin",
-          method: "POST",
-          data: parametros,
-          dataType: "json",
-          success: function(response){
+//         $.ajax({
+//           url: "/api/fblogin",
+//           method: "POST",
+//           data: parametros,
+//           dataType: "json",
+//           success: function(response){
 
-            if (response.estatus == 1){
-              window.location.href = "/dash-carpeta.html";
-            } else {
-              // Mensaje de Error
-              $.alert({
-                title: '',
-                content: response.mensaje,
-                type: 'red',
-                typeAnimated: true,
-                icon: 'fas fa-exclamation-triangle',
-                closeIcon: true,
-                closeIconClass: 'fas fa-times',
-                autoClose: 'cerrar|5000', // Tiempo para cerrar el mensaje
-                theme: 'modern', // Acepta propiedades CSS
-                buttons: {
-                  cerrar: {
-                    text: 'Cerrar',
-                    btnClass: 'btn-danger',
-                    keys: ['enter', 'shift']
-                  }
-                }
-              });
-            }
-          },
-          error: function (e) {
-            console.log(e);
-          },
-        });  
-      });
-    }
-  }, {scope: 'public_profile,email'});
+//             if (response.estatus == 1){
+//               window.location.href = "/dash-carpeta.html";
+//             } else {
+//               // Mensaje de Error
+//               $.alert({
+//                 title: '',
+//                 content: response.mensaje,
+//                 type: 'red',
+//                 typeAnimated: true,
+//                 icon: 'fas fa-exclamation-triangle',
+//                 closeIcon: true,
+//                 closeIconClass: 'fas fa-times',
+//                 autoClose: 'cerrar|5000', // Tiempo para cerrar el mensaje
+//                 theme: 'modern', // Acepta propiedades CSS
+//                 buttons: {
+//                   cerrar: {
+//                     text: 'Cerrar',
+//                     btnClass: 'btn-danger',
+//                     keys: ['enter', 'shift']
+//                   }
+//                 }
+//               });
+//             }
+//           },
+//           error: function (e) {
+//             console.log(e);
+//           },
+//         });  
+//       });
+//     }
+//   }, {scope: 'public_profile,email'});
     
-}
+// }
 
-function checkLoginState() {
-  FB.getLoginStatus(function(response) {
-    statusChangeCallback(response);
-  });
-}
+// function checkLoginState() {
+//   FB.getLoginStatus(function(response) {
+//     statusChangeCallback(response);
+//   });
+// }
 
-window.fbAsyncInit = function() {
-  FB.init({
-    appId  : '865336320473266',
-    cookie : true,
-    xfbml  : true,  
-    version: 'v3.3'
-  });
-  FB.AppEvents.logPageView();
-};
+// window.fbAsyncInit = function() {
+//   FB.init({
+//     appId  : '865336320473266',
+//     cookie : true,
+//     xfbml  : true,  
+//     version: 'v3.3'
+//   });
+//   FB.AppEvents.logPageView();
+// };
 
-(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "https://connect.facebook.net/en_US/sdk.js";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
-
-
+// (function(d, s, id) {
+//   var js, fjs = d.getElementsByTagName(s)[0];
+//   if (d.getElementById(id)) return;
+//   js = d.createElement(s); js.id = id;
+//   js.src = "https://connect.facebook.net/en_US/sdk.js";
+//   fjs.parentNode.insertBefore(js, fjs);
+// }(document, 'script', 'facebook-jssdk'));

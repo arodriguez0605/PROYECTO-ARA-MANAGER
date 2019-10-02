@@ -22,7 +22,7 @@ api.post('/login', autenticar.loginUsuario);
 api.get('/logout', autenticar.logoutUsuario);
 
 // === Petición de tipo GET para Prueba: 
-api.get('/me', VerifyToken, autenticar.me);
+api.get('/me', autenticar.me);
 
 // === Petición de tipo GET que devuelve todos los Recursos de la base:
 api.get('/usuarios', usuarioCtrl.mostrarUsuarios)

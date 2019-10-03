@@ -440,13 +440,13 @@
   <!--body modal-->
                   <div class="card bg-secondary shadow">
                     <div class="card-header bg-transparent pb-5">
-                      <form role="form">
+                      <form role="form" onsubmit="cargarMultimedia()">
                           <div class="form-group">
                             <div class="input-group input-group-alternative mb-3">
                               <div class="input-group-prepend">
                                 <span class="input-group-text"></span>
                               </div>
-                              <input class="form-control" placeholder="Nombre del archivo" type="text">
+                              <input class="form-control" placeholder="Nombre del archivo" type="text" id="nombreArchivo">
                             </div>
                           </div>
                           <div class="form-group">
@@ -454,19 +454,19 @@
                               <div class="input-group-prepend">
                                 <span class="input-group-text"></span>
                               </div>
-                              <input class="form-control" placeholder="Descripción" type="text">
+                              <input class="form-control" placeholder="Descripción" type="text" id="descripcionArchivo">
                             </div>
                           </div>
                           <div class="input-group mb-3">
                               <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="">
-                                <label class="custom-file-label" >Cargar imagen</label>
+                                <input type="file" class="custom-file-input" id="cargarArchivo">
+                                <label class="custom-file-label" >Cargar imagen o video</label>
                               </div>
                             </div>
                             
            
                         <div class="text-center">
-                          <button type="button" class="btn btn-warning my-4">Cargar recurso</button>
+                          <button type="submit" class="btn btn-warning my-4" >Cargar Multimedia</button>
                         </div>
                       </form>
                     </div>
@@ -527,4 +527,5 @@
   
         </div>
       </div>
+      
 {{> footer}}

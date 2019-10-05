@@ -6,7 +6,7 @@ var UserSchema = new mongoose.Schema({
   email: { type: String, unique: true, lowercase: true },
   password: String,
   primerNombre: String,
-  segundoNombre: String,
+  primerApellido: String,
   fechaNacimiento: Date,
   trabajo: String,
   lugarTrabajo: String,
@@ -14,6 +14,7 @@ var UserSchema = new mongoose.Schema({
   ciudad: String,
   pais: String,
   codigoPostal: String,
+  acercaPerfil: String,
   imagen: String,
   permiso: String
 });
@@ -31,6 +32,16 @@ Usuario.findOne({email: 'admin@gmail.com'}, function(err, usuario){
     name: 'Admin', 
     email: 'admin@gmail.com', 
     password: hashedPassword,
+    primerNombre: "Alejandra",
+    primerApellido: "Rodríguez",
+    fechaNacimiento: "1995-05-06",
+    trabajo: "Estudiante de Ingeniería en Sistemas",
+    lugarTrabajo: "Universidad Nacional Autónoma",
+    direccion: "Colonia Hato de Enmedio",
+    ciudad: "Tegucigalpa",
+    pais: "Honduras",
+    acercaPerfil: "Este es mi proyecto de Sistemas Expertos del segundo periodo del año 2019",
+    codigoPostal: "11101",
     permiso: 'Administrador'
   });
   

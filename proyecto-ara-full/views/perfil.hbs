@@ -13,15 +13,15 @@
       <div class="container-fluid d-flex align-items-center">
         <div class="row">
           <div class="col-lg-7 col-md-10">
-            <h1 class="display-2 text-white">Hola <span id="perfil-usuario"></span></h1>
+            <h1 id="perfil-usuario" class="display-2 text-white"></h1>
             <p class="text-white mt-0 mb-5">Esta es tu página de perfil. Puedes acceder a tu información y modificarla en cualquier momento.</p>
-            <a href="#!" class="btn btn-warning">Editar perfil</a>
+            {{!-- <a href="#!" class="btn btn-warning">Editar perfil</a> --}}
           </div>
         </div>
       </div>
     </div>
     <!-- Page content -->
-    <div class="container-fluid mt--7">
+    <div class="container-fluid mt--8">
       <div class="row">
         <div class="col-xl-4 order-xl-2 mb-5 mb-xl-0">
           <div class="card card-profile shadow">
@@ -40,6 +40,7 @@
             <!--<a href="#" class="btn btn-sm btn-default float-right">Message</a>--> 
               </div>
             </div>
+
             <div class="card-body pt-0 pt-md-4">
               <div class="row">
                 <div class="col">
@@ -48,7 +49,8 @@
                       <span class="heading">22</span>
                       <span class="description">Entradas</span>
                     </div>
-                <!--<div>
+                    <!--
+                    <div>
                       <span class="heading">10</span>
                       <span class="description">Archivos</span>
                     </div> -->  
@@ -59,21 +61,22 @@
                   </div>
                 </div>
               </div>
+
               <div class="text-center">
-                <h3>
-                  Alejandra Rodríguez<span class="font-weight-light">, 24</span>
+                <h3 id="profile-name">
+                  <span class="font-weight-light"></span>
                 </h3>
                 <div class="h5 font-weight-300">
-                  <i class="ni location_pin mr-2"></i>Tegucigalpa, Honduras
+                  <i id="profile-address" class="ni location_pin mr-2"></i>
                 </div>
                 <div class="h5 mt-4">
-                  <i class="ni business_briefcase-24 mr-2"></i>Estudiante de Ingeniería en Sistemas
+                  <i id="profile-job" class="ni business_briefcase-24 mr-2"></i>
                 </div>
                 <div>
-                  <i class="ni education_hat mr-2"></i>Universidad Nacional Autónoma de Honduras
+                  <i id="profile-work-place" class="ni education_hat mr-2"></i>
                 </div>
-                <hr class="my-4" />
-                <p>Este es mi proyecto de Sistemas Expertos del segundo periodo del año 2019</p>
+                <hr class="my-4">
+                <p id="profile-about"></p>
               </div>
             </div>
           </div>
@@ -98,27 +101,27 @@
                     <div class="col-lg-6">
                       <div class="form-group">
                         <label class="form-control-label" for="input-username">Nombre de usuario</label>
-                        <input type="text" id="input-username" class="form-control form-control-alternative" placeholder="" value="a_rodriguez0605">
+                        <input type="text" id="input-username" class="form-control form-control-alternative" placeholder="Nombre de usuario">
                       </div>
                     </div>
                     <div class="col-lg-6">
                       <div class="form-group">
                         <label class="form-control-label" for="input-email">Correo electrónico</label>
-                        <input type="email" id="input-email" class="form-control form-control-alternative" placeholder="a_rodriguez0605@hotmail.com">
+                        <input type="email" id="input-email" class="form-control form-control-alternative" placeholder="Correo electrónico">
                       </div>
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-lg-6">
                       <div class="form-group">
-                        <label class="form-control-label" for="input-first-name">Nombre</label>
-                        <input type="text" id="input-first-name" class="form-control form-control-alternative" placeholder="" value="Alejandra">
+                        <label class="form-control-label" for="input-first-name">Primer Nombre</label>
+                        <input type="text" id="input-first-name" class="form-control form-control-alternative" placeholder="Primer Nombre">
                       </div>
                     </div>
                     <div class="col-lg-6">
                       <div class="form-group">
-                        <label class="form-control-label" for="input-last-name">Apellido</label>
-                        <input type="text" id="input-last-name" class="form-control form-control-alternative" placeholder="" value="Rodríguez">
+                        <label class="form-control-label" for="input-last-name">Primer Apellido</label>
+                        <input type="text" id="input-last-name" class="form-control form-control-alternative" placeholder="Primer Apellido">
                       </div>
                     </div>
                   </div>
@@ -127,14 +130,14 @@
                       <div class="col-lg-6">
                         <div class="form-group">
                           <label class="form-control-label" for="input-date">Fecha de nacimiento</label>
-                          <input type="date" id="input-date" class="form-control form-control-alternative" placeholder="" value="">
+                          <input type="date" id="input-date" class="form-control form-control-alternative" placeholder="">
                         </div>
                       </div>
 
                       <div class="col-lg-6">
                         <div class="form-group">
                           <label class="form-control-label" for="input-password">Contraseña</label>
-                          <input type="password" id="input-password" class="form-control form-control-alternative" placeholder="" value="asd.456">
+                          <input type="password" id="input-password" class="form-control form-control-alternative" placeholder="Contraseña">
                         </div>
                       </div>
                     </div>
@@ -143,14 +146,14 @@
                         <div class="col-lg-6">
                           <div class="form-group">
                             <label class="form-control-label" for="input-job">Ocupación</label>
-                            <input type="text" id="input-job" class="form-control form-control-alternative" placeholder="" value="Estudiante de ingeniería en Sistemas">
+                            <input type="text" id="input-job" class="form-control form-control-alternative" placeholder="Ocupación">
                           </div>
                         </div>
 
                         <div class="col-lg-6">
                           <div class="form-group">
-                            <label class="form-control-label" for="input-work-place">Lugar de trabajo/estudio</label>
-                            <input type="text" id="input-work-place" class="form-control form-control-alternative" placeholder="" value="Universidad Nacional Autónoma">
+                            <label class="form-control-label" for="input-work-place">Lugar de Trabajo/Estudio</label>
+                            <input type="text" id="input-work-place" class="form-control form-control-alternative" placeholder="Lugar de Trabajo/Estudio">
                           </div>
                         </div>
                       </div>
@@ -163,7 +166,7 @@
                     <div class="col-md-12">
                       <div class="form-group">
                         <label class="form-control-label" for="input-address">Dirección</label>
-                        <input id="input-address" class="form-control form-control-alternative" placeholder="Home Address" value="Colonia Hato de Enmedio" type="text">
+                        <input type="text" id="input-address" class="form-control form-control-alternative" placeholder="Dirección">
                       </div>
                     </div>
                   </div>
@@ -172,14 +175,14 @@
                     <div class="col-lg-4">
                       <div class="form-group">
                         <label class="form-control-label" for="input-city">Ciudad</label>
-                        <input type="text" id="input-city" class="form-control form-control-alternative" placeholder="City" value="Tegucigalpa">
+                        <input type="text" id="input-city" class="form-control form-control-alternative" placeholder="Ciudad">
                       </div>
                     </div>
 
                     <div class="col-lg-4">
                       <div class="form-group">
                         <label class="form-control-label" for="input-country">País</label>
-                        <input type="text" id="input-country" class="form-control form-control-alternative" placeholder="Country" value="Honduras">
+                        <input type="text" id="input-country" class="form-control form-control-alternative" placeholder="País">
                       </div>
                     </div>
 
@@ -198,8 +201,11 @@
                 <div class="pl-lg-4">
                   <div class="form-group">
                     <label>Acerca de mi</label>
-                    <textarea rows="4" class="form-control form-control-alternative" placeholder="A few words about you ...">Este es mi proyecto de Sistemas Expertos del segundo periodo del año 2019</textarea>
+                    <textarea rows="4" id="input-about" class="form-control form-control-alternative" placeholder="Acerca de tí"></textarea>
                   </div>
+                </div>
+                <div>
+                  <button type="button" class="btn btn-warning" id="actualizar-perfil" onclick="ActualizarPerfil()"> Editar perfil</button>
                 </div>
               </form>
             </div>

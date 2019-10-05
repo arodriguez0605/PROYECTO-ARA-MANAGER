@@ -73,7 +73,7 @@ $("#btn-registro").click(function(){
   if (loginValido){
 
     $.ajax({
-      url: "/api/register",
+      url: "/api/usuario/register",
       method: "POST",
       dataType: "json",
       data: {

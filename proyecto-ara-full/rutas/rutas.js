@@ -13,16 +13,13 @@ const api = express.Router();
 
 // ==================== PETICIONES DE USUARIO ====================
 // === Petición de tipo POST para Insertar nuevos recursos: 
-api.post('/register', autenticar.registrarUsuario);
+api.post('/register', usuarioCtrl.registrarUsuario);
 
-// === Petición de tipo POST para Login: 
-api.post('/login', autenticar.loginUsuario);
+// === Petición de tipo GET para obtener datos del usuario Logeado: 
+api.get('/me', usuarioCtrl.me);
 
-// === Petición de tipo GET para Logout: 
-api.get('/logout', autenticar.logoutUsuario);
-
-// === Petición de tipo GET para Prueba: 
-api.get('/me', autenticar.me);
+// === Petición de tipo GET para obtener datos del usuario Logeado para el perfil: 
+api.get('/obtenerPerfil', usuarioCtrl.obtenerPerfil);
 
 // === Petición de tipo GET que devuelve todos los Recursos de la base:
 api.get('/usuarios', usuarioCtrl.mostrarUsuarios)
@@ -37,7 +34,12 @@ api.get('/usuarios', usuarioCtrl.mostrarUsuarios)
 // === Petición de tipo DELETE para Borrar un único recurso:
 // api.delete('/usuario/:usuarioId', usuarioCtrl.deleteUsuario)
 
-// ==================== PETICIONES DE LOREM ====================
+// ==================== PETICIONES DE AUTENTICACIÓN ====================
+// === Petición de tipo POST para Login: 
+api.post('/login', autenticar.loginUsuario);
+
+// === Petición de tipo GET para Logout: 
+api.get('/logout', autenticar.logoutUsuario);
 
 // ==================== PETICIONES DE LOREM ====================
 

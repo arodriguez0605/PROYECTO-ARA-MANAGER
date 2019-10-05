@@ -79,23 +79,25 @@ app.post('/subirImagen', upload.single('cargarArchivo'), async (req, res) => {
       req.body.descripcionArchivo !== '' &&
       req.file !== undefined
     ) {
-      console.log('req.file--<>>><', req.file);
+      console.log('req.file----->>>>>>', req.file);
+      let extensionArchivo = req.file.mimetype.split('/');
       let imagenData = {
         nombre: req.body.nombreArchivo,
         descripcion: req.body.descripcionArchivo,
-        urlImagen: `/public/data/archivosSubidos/${req.file.filename}.png`,
+        urlImagen: `/public/data/archivosSubidos/${req.file.filename}.${extensionArchivo[1]}`,
+        extensionArchivo: `.${extensionArchivo[1]}`,
       }
 
       await Multimedia.guardarImagen(imagenData, res).then(response => {
         console.log('response--><', response);
-        res.status(200).send({ message: 'La imagen ha sido guardad.' });
+        res.render('multimedia', { code: 200, message: 'La imagen ha sido guardada!' });
       })
 
     } else {
-      res.status(400).send({ message: 'Datos incompletos.' });
+      res.render('multimedia', { code: 400, message: 'Datos incompletos.' });
     }
-  } catch(error){
-    res.status(500).send({ error });
+  } catch (error) {
+    res.render('multimedia', { code: 500, message: error });
   }
 })
 

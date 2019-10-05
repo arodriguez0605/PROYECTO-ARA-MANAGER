@@ -6,7 +6,7 @@ async function guardarImagen(imagenData) {
             nombre: imagenData.nombre,
             descripcion: imagenData.descripcion,
             url: imagenData.urlImagen,
-            extensionArchivo: '.png',
+            extensionArchivo: imagenData.extensionArchivo,
             fechaSubido: Date.now(),
         },
             function (error, multimedia) {

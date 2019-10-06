@@ -58,8 +58,12 @@ function cargarPerfil(){
     },
     success: function (response) {
       //console.log(`mensaje del servidor: ${response.user.name}`);
-      let date =  new Date(response.user.fechaNacimiento);
-      let fechaFormato = date.toISOString().slice(0,10);
+      let date, fechaFormato = "";
+
+      if (response.user.fechaNacimiento){
+        date = new Date(response.user.fechaNacimiento);
+        fechaFormato = date.toISOString().slice(0, 10);
+      }
       
       // Para prepopular los inputs
       $('#input-username').val(response.user.name);
@@ -100,7 +104,6 @@ function ActualizarPerfil(){
 
   for (var i=0; i<campos.length; i++){
     if (!campos[i].valido){
-      console.log("Compo faltante:" + campos[i].campo);
       return camposValidos = false; // Sale de la función con el return
     } else {
       camposValidos = true;

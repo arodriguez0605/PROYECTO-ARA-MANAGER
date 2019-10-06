@@ -30,11 +30,11 @@ api.get('/usuario/obtenerUsuarios', usuarioCtrl.mostrarUsuarios)
 // === Petición de tipo GET para un único recurso en concreto:
  api.get('/usuario/:id', usuarioCtrl.buscarUsuario)
 
-// === Petición de tipo PUT para Actualizar un único recurso:
-//api.put('/usuario/:usuarioId', usuarioCtrl.updateUsuario)
-
 // === Petición de tipo PUT para Actualizar el perfil:
 api.put('/usuario/guardarPerfil', usuarioCtrl.actualizarPerfil)
+
+ // === Petición de tipo PUT para Actualizar un único recurso:
+//api.put('/usuario/:usuarioId', usuarioCtrl.updateUsuario)
 
 // === Petición de tipo DELETE para Borrar un único recurso:
 //api.delete('/usuario/:usuarioId', usuarioCtrl.deleteUsuario)

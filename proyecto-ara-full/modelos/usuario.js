@@ -4,7 +4,7 @@ var bcrypt = require('bcryptjs');
 var UserSchema = new mongoose.Schema({  
   name: String,
   email: { type: String, unique: true, lowercase: true },
-  password: String,
+  password: { type: String, required: true },
   primerNombre: String,
   primerApellido: String,
   fechaNacimiento: Date,
@@ -16,7 +16,9 @@ var UserSchema = new mongoose.Schema({
   codigoPostal: String,
   acercaPerfil: String,
   imagen: String,
-  permiso: String
+  permiso: String,
+  fechaCreacion: { type: Date, default: Date.now() },
+  estado: { type: String, default: "Activo" }
 });
 
 var Usuario = mongoose.model('User', UserSchema);
@@ -42,7 +44,9 @@ Usuario.findOne({email: 'admin@gmail.com'}, function(err, usuario){
     pais: "Honduras",
     acercaPerfil: "Este es mi proyecto de Sistemas Expertos del segundo periodo del año 2019",
     codigoPostal: "11101",
-    permiso: 'Administrador'
+    permiso: 'Administrador',
+    estado: "Activo",
+    fechaCreacion: Date.now()
   });
   
   usuarioAdmin.save(function(err, usuario){

@@ -69,7 +69,7 @@ function obtenerPerfil (req, res) {
   });
 };
 
-// CREA UN NUEVO USUARIO
+// CREA UN NUEVO USUARIO DESDE REGISTRO
 function registrarUsuario (req, res) {
 
   // Comprobación de campos nulos
@@ -88,9 +88,10 @@ function registrarUsuario (req, res) {
     
       // Intenta crear el usuario con la contraseña encriptada
       User.create({
-        name : req.body.name,
-        email : req.body.email,
-        password : hashedPassword
+        name: req.body.name,
+        email: req.body.email,
+        password: hashedPassword,
+        permiso: "Regular"
       },
       function (err, user) {
         if (err) return res.status(500).send({auth: false, mensaje: 'Hubo un problema al agregar la información a la base de datos.'});
@@ -101,6 +102,47 @@ function registrarUsuario (req, res) {
         });
     
         res.status(200).send({ auth: true, token: token, mensaje: 'Usuario guardado con éxito.' });
+      });
+    }); 
+  }
+};
+
+// CREA UN NUEVO USUARIO DESDE LA CUENTA DE UN ADMIN
+function nuevaCuenta (req, res) {
+
+  // Comprobación de campos nulos
+  if (!req.body.name || !req.body.email || !req.body.password || !req.body.permiso){
+    return res.status(400).send({auth: false, mensaje: "Campos faltantes."});
+  } else {
+    
+    if (req.body.permiso == 1){
+      req.body.permiso = 'Administrador';
+    } else if (req.body.permiso == 2){
+      req.body.permiso = 'Regular';
+    } else {
+      return res.status(400).send({auth: false, mensaje: "Campos Incorrectos."});
+    }
+
+    // Busca si el correo ya existe en la base
+    User.findOne({ email: req.body.email }, function (err, user) {
+      if (err) return res.status(500).send({auth: false, mensaje: 'Error en el servidor.'});
+      
+      if (user) return res.send({auth: false, mensaje: 'Este correo ya fue registrado.'});
+
+      // Si no existe el correo en la base, encripta la contraseña
+      var hashedPassword = bcrypt.hashSync(req.body.password, 8);
+    
+      // Intenta crear el usuario con la contraseña encriptada
+      User.create({
+        name: req.body.name,
+        email: req.body.email,
+        password: hashedPassword,
+        permiso: req.body.permiso
+      },
+      function (err, user) {
+        if (err) return res.status(500).send({auth: false, mensaje: 'Hubo un problema al agregar la información a la base de datos.'});
+    
+        res.status(200).send({ auth: true, mensaje: 'Usuario guardado con éxito.', user: user});
       });
     }); 
   }
@@ -149,5 +191,6 @@ module.exports = {
   me,
   obtenerPerfil,
   buscarUsuario,
-  actualizarPerfil
+  actualizarPerfil,
+  nuevaCuenta
 };

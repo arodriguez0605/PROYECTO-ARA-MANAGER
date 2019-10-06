@@ -15,6 +15,9 @@ const api = express.Router();
 // === Petición de tipo POST para Insertar nuevos recursos: 
 api.post('/usuario/register', usuarioCtrl.registrarUsuario);
 
+// === Petición de tipo POST para Insertar nuevos recursos: 
+api.post('/usuario/nuevaCuenta', usuarioCtrl.nuevaCuenta);
+
 // === Petición de tipo GET para obtener datos del usuario Logeado: 
 api.get('/usuario/me', usuarioCtrl.me);
 

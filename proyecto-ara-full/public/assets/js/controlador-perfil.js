@@ -3,7 +3,7 @@ $(document).ready(function() {
 });
 
 function cargarPerfil(){
-  console.log(`Cargar Perfil`);
+  //console.log(`Cargar Perfil`);
 
   $.ajax({
     url: "/api/usuario/obtenerPerfil",
@@ -45,7 +45,7 @@ function cargarPerfil(){
 }
 
 function ActualizarPerfil(){
-  console.log(`Actualizar Perfil`);
+  //console.log(`Actualizar Perfil`);
 
   $.ajax({
     url: "/api/usuario/guardarPerfil",
@@ -120,29 +120,8 @@ function ActualizarPerfil(){
       cargarPerfil();
     },
     error: function (xhr, status, error){
-      
       var err = JSON.parse(xhr.responseText);
       console.error(`Error mensaje: ${err.mensaje}`);
-
-      //Mensaje de Error
-      $.alert({
-        title: 'Error al cargar los Datos',
-        content: err.mensaje,
-        type: 'red',
-        typeAnimated: true,
-        icon: 'fas fa-exclamation-triangle',
-        closeIcon: true,
-        closeIconClass: 'fas fa-times',
-        //autoClose: 'cerrar|5000', // Tiempo para cerrar el mensaje
-        theme: 'modern', // Acepta propiedades CSS
-        buttons: {
-          cerrar: {
-            text: 'Cerrar',
-            btnClass: 'btn-danger',
-            keys: ['enter', 'shift']
-          }
-        }
-      });
     }
   });
 }

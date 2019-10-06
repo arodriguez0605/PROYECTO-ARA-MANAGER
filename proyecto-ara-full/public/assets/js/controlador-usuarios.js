@@ -20,9 +20,6 @@ $("#btn-nuevo-usuario").click(function (){
       "permiso": $('#permiso').val()
     },
     success: function (response) {
-      // console.log(`mensaje del servidor, auth: ${response.auth}`);
-      
-      console.log(response.users);
 
       if (response.auth == true){
         //console.log(`Datos`);

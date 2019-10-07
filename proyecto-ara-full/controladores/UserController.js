@@ -6,7 +6,7 @@ var config = require('../config');
 
 // DEVUELVE A TODOS LOS USUARIOS DE LA BASE DE DATOS
 function mostrarUsuarios (req, res) {
-  User.find({}, function (err, users) {
+  User.find({}, {password: 0}, function (err, users) {
     if (err) return res.status(500).send("Hubo un problema para encontrar a los usuarios.");
     res.status(200).send({auth: true, mensaje: 'Se devuelven los usuarios', users: users});
   });
@@ -91,7 +91,9 @@ function registrarUsuario (req, res) {
         name: req.body.name,
         email: req.body.email,
         password: hashedPassword,
-        permiso: "Regular"
+        permiso: "Regular",
+        fechaCreacion: Date.now(),
+        estado: "Activo"
       },
       function (err, user) {
         if (err) return res.status(500).send({auth: false, mensaje: 'Hubo un problema al agregar la información a la base de datos.'});
@@ -137,7 +139,9 @@ function nuevaCuenta (req, res) {
         name: req.body.name,
         email: req.body.email,
         password: hashedPassword,
-        permiso: req.body.permiso
+        permiso: req.body.permiso,
+        fechaCreacion: Date.now(),
+        estado: "Activo"
       },
       function (err, user) {
         if (err) return res.status(500).send({auth: false, mensaje: 'Hubo un problema al agregar la información a la base de datos.'});

@@ -4,7 +4,33 @@ const multer = require('multer');
 const upload = multer({ dest: './public/data/archivosSubidos/' });
 const database = require('./modules/database'); // Se conecta a Mongo
 const Multimedia = require('./controladores/MultimediaController');
+const Categoria = require('./controladores/CategoriaController');
+const Entrada = require('./controladores/EntradaController');
 
+let storageCategoria = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, './public/data/archivosSubidos/imgCategoria')
+  },
+  filename: function (req, file, cb) {
+    let extArray = file.mimetype.split("/");
+    let extension = extArray[extArray.length - 1];
+    cb(null, file.originalname)
+  }
+})
+
+let storageEntrada = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, './public/data/archivosSubidos/imgEntrada')
+  },
+  filename: function (req, file, cb) {
+    let extArray = file.mimetype.split("/");
+    let extension = extArray[extArray.length - 1];
+    cb(null, file.originalname)
+  }
+})
+
+const uploadCategoria = multer({ storage: storageCategoria });
+const uploadEntrada = multer({ storage: storageEntrada });
 // Puerto 
 const port = process.env.PORT || 3000;
 const app = require('./app');
@@ -44,6 +70,10 @@ app.get('/principal', verificarAuth, (req, res) => {
   res.render('principal');
 });
 
+app.get('/navbar', verificarAuth, (req, res) => {
+  res.render('/parciales/navbar');
+});
+
 app.get('/multimedia', verificarAuth, (req, res) => {
   res.render('multimedia');
 });
@@ -57,15 +87,38 @@ app.get('/usuarios', verificarAuth, (req, res) => {
 });
 
 app.get('/categorias', verificarAuth, (req, res) => {
-  res.render('categorias');
+  var categorias = Categoria.obtenerCategorias();
+  // console.log(categorias);
+
+  categorias.then(function(categorias){
+    // console.log(categorias);
+    console.log(req.session.user);
+    res.render('categorias', {categoria: categorias});
+ })
+  
 });
 
 app.get('/entradas', verificarAuth, (req, res) => {
-  res.render('entradas');
+  var entradas = Entrada.obtenerEntradas();
+  // console.log(categorias);
+
+  entradas.then(function(entradas){
+    console.log(entradas);
+  //console.log(req.session.user);
+    res.render('entradas', {entrada: entradas});
+  })
 });
 
 app.get('/editor', verificarAuth, (req, res) => {
-  res.render('editor');
+
+  var categorias = Categoria.obtenerCategorias();
+  // console.log(categorias);
+
+  categorias.then(function(categorias){
+    // console.log(categorias);
+    console.log(req.session.user);
+    res.render('editor', {categoria: categorias});
+ });
 });
 
 app.get('/editor2', verificarAuth, (req, res) => {
@@ -88,6 +141,7 @@ app.post('/subirImagen', upload.single('cargarArchivo'), async (req, res) => {
         extensionArchivo: `.${extensionArchivo[1]}`,
       }
 
+      console.log(`/public/data/archivosSubidos/imgCategoria/${req.file.filename}.${extensionArchivo[1]}`);
       await Multimedia.guardarImagen(imagenData, res).then(response => {
         console.log('response--><', response);
         res.render('multimedia', { code: 200, message: 'La imagen ha sido guardada!' });
@@ -98,6 +152,81 @@ app.post('/subirImagen', upload.single('cargarArchivo'), async (req, res) => {
     }
   } catch (error) {
     res.render('multimedia', { code: 500, message: error });
+  }
+})
+
+app.post('/crearCategoria', uploadCategoria.single('cargarImagen'), async (req, res) => {
+  try {
+    if (
+      req.body.nombreArchivo !== '' &&
+      req.body.descripcionArchivo !== '' &&
+      req.file !== undefined
+    ) {
+      console.log(req.body);
+      console.log('req.file----->>>>>>', req.file);
+      //let extensionArchivo = req.file.mimetype.split('/');
+      let categoriaData = {
+        nombre: req.body.nombreCategoria,
+        descripcion: req.body.descripcionCategoria,
+        urlImagen: `/data/archivosSubidos/imgCategoria/${req.file.filename}`
+      }
+
+      await Categoria.crearCategoria(categoriaData, res).then(response => {
+        console.log('response--><', response);
+        res.render('categorias', { code: 200, message: 'La categoria ha sido creada!' });
+      })
+
+    } else {
+      res.render('categorias', { code: 400, message: 'Datos incompletos.' });
+    }
+  } catch (error) {
+    res.render('categorias', { code: 500, message: error });
+  }
+})
+
+app.post('/crearEntrada', uploadEntrada.single('cargarImagen'), async (req, res) => {
+  try {
+    if (
+      req.body.nombreEntrada !== '' &&
+      req.body.descripcionEntrada !== '' &&
+      req.file !== undefined
+    ) {
+      var puedeComentar
+      if (req.body.puedeComentar == '') {
+        puedeComentar = 1
+      } else {
+        puedeComentar = req.body.puedeComentar
+      }
+
+      var estado
+      if (req.body.estado == '') {
+        estado = 1
+      } else {
+        estado = req.body.estado
+      }      
+      console.log(req.body);
+      console.log('req.file----->>>>>>', req.file);
+      //let extensionArchivo = req.file.mimetype.split('/');
+      let entradaData = {
+        nombre: req.body.nombreEntrada,
+        descripcion: req.body.descripcionEntrada,
+        contenido: req.body.editor1,
+        categoria: req.body.categoria,
+        imagen: `/data/archivosSubidos/imgEntrada/${req.file.filename}`,
+        puedeComentar: puedeComentar,
+        estado: estado,
+      }
+
+      await Entrada.crearEntrada(entradaData, res).then(response => {
+        console.log('response--><', response);
+        res.render('entradas', { code: 200, message: 'La Entrada ha sido creada!' });
+      })
+
+    } else {
+      res.render('entradas', { code: 400, message: 'Datos incompletos.' });
+    }
+  } catch (error) {
+    res.render('entradas', { code: 500, message: error });
   }
 })
 

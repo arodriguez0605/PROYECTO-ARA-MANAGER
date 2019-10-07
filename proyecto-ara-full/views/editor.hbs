@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Favicon -->
-    <link rel= "shortcut icon" href="assets/img/LogoAraManager.png">
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="assets/img/LogoAraManager.png">
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
   <!-- Icons -->
@@ -12,71 +13,155 @@
   <link href="./assets/js/plugins/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet" />
   <!-- CSS Files -->
   <link href="./assets/css/argon-dashboard.css?v=1.1.0" rel="stylesheet" />
- <title>
-      Editor - Ara Manager
-</title>
-<script src="../ckeditor/ckeditor.js"></script> 
+  <title>
+    Editor - Ara Manager
+  </title>
+  <script src="../ckeditor/ckeditor.js"></script>
 </head>
 
 <body>
-        {{> navbar}}  
-    <!--Nueva entrada y búsqueda -->
-    <div class="header bg-gradient-primary pb-8 pt-5 pt-md-8">
-            <div class="container-fluid">
-              <div class="header-body">
-            </div>
-            </div>
-          </div> 
-          <div class="container-fluid mt--7">
-            <!-- Table -->
-          <div class="row">
-              <div class="col">
-                <div class="card shadow">
-                  <div class="card-header border-0">
-                    <h3 class="mb-0">Entradas | Editor de texto</h3>
-                  </div>
-                  <div class="table-responsive" align="center">
-                     <table class="table align-items-center table-flush">
-                      <thead class="thead-light"> 
-        <textarea name="" id="editor1" cols="120" rows="10"></textarea>
-                      </thead>
-                    </table> 
-                  </div>
-                  <div class="card-footer py-4">
-                        <nav aria-label="...">
-        
-                        </nav>
-                      </div>
-            </div>
-
-<!-- Footer -->
-    <footer>
-      <div class="text-center py-3"> Sistemas Expertos {{getAnio}} <br>Gabriela Alejandra Aguilar Rodríguez
+  {{> navbar}}
+  <!--Nueva entrada y búsqueda -->
+  <div class="header bg-gradient-primary pb-8 pt-5 pt-md-8">
+    <div class="container-fluid">
+      <div class="header-body">
       </div>
-    </footer>
-  
-  <!--   Core   -->
+    </div>
+  </div>
+  <div class="container-fluid mt--7">
+    <!-- Table -->
+    <div class="row">
+      <div class="col">
+        <div class="card shadow">
+          <div class="card-header border-0">
+            <h3 class="mb-0">Entradas | Editor de texto</h3>
+          </div>
+          <div class="table-responsive" align="center">
+            <table class="table align-items-center table-flush">
+              <thead class="thead-light">
+                <form action='/crearEntrada' method="POST" enctype="multipart/form-data">
+                  <div class="form-group">
+                    <div class="input-group input-group-alternative mb-1">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"></span>
+                      </div>
+                      <input class="form-control" placeholder="Nombre de la entrada" type="text" name="nombreEntrada"
+                        id="nombreEntrada" required>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="input-group input-group-alternative mb-1">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"></span>
+                      </div>
+                      <input class="form-control" placeholder="Descripción" type="text" id="descripcionEntrada"
+                        name="descripcionEntrada" required>
 
-  <script src="./assets/js/plugins/jquery/dist/jquery.min.js"></script>
-  <script src="./assets/js/plugins/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-   <!--JS-->
-   <script src="./assets/js/controlador.js"></script>
-   <!--   Optional JS   -->
-  <script src="./assets/js/plugins/chart.js/dist/Chart.min.js"></script>
-  <script src="./assets/js/plugins/chart.js/dist/Chart.extension.js"></script>
-  <!--   Argon JS   -->
-  <script src="./assets/js/argon-dashboard.min.js?v=1.1.0"></script>
-  <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
-  <script>
-    window.TrackJS &&
-      TrackJS.install({
-        token: "ee6fab19c5a04ac1a32a645abde4613a",
-        application: "argon-dashboard-free"
-      });
-  </script>
+                    </div>
+                  </div>
 
- <script type="text/javascript">
-    CKEDITOR.replace('editor1');
-</script>
+                  <div class="form-group">
+                    <div class="input-group input-group-alternative mb-1">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"></span>
+                      </div>
+                      <textarea name="editor1" id="editor1" cols="120" rows="10"></textarea>
+
+                    </div>
+                  </div>                  
+
+                  <div class="form-group">
+                    <div class="input-group input-group-alternative mb-1">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"></span>
+                      </div>
+
+                      <select class="form-control" name="categoria" id="categoria">
+                        {{#each categoria}}
+                          <option value={{ _id }}> {{ nombre }} </option>
+                        {{/each}}
+                      </select>
+
+                    </div>
+                  </div>
+                  
+                  <div class="input-group mb-1">
+                    <div class="custom-file">
+                      <input type="file" class="custom-file-input" id="cargarImagen" name="cargarImagen" required>
+                      <label class="custom-file-label"><i class="fas fa-arrow-circle-up"></i> Cargar imagen</label>                  
+                    </div>
+                  </div>
+
+
+                  <div class="row my-4">
+                    <div class="col-12">
+                      <div class="custom-control custom-control-alternative custom-checkbox">
+                        <input class="custom-control-input" id="peritirComentario"  type="checkbox" value="0">
+                        <label class="custom-control-label" for="peritirComentario">
+                          <span class="text-muted">No permitir Comentarios</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row my-4">
+                    <div class="col-12">
+                      <div class="custom-control custom-control-alternative custom-checkbox">
+                        <input class="custom-control-input" id="privacidad"  type="checkbox" value="0">
+                        <label class="custom-control-label" for="privacidad">
+                          <span class="text-muted">Entrada privada</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div class="text-center">
+                    <input type="submit" class="btn btn-warning my-4" value="Crear Entrada">
+
+                  </div>
+                </form>
+
+
+              </thead>
+            </table>
+          </div>
+          <div class="card-footer py-4">
+            <nav aria-label="...">
+
+            </nav>
+          </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+          <div class="text-center py-3"> Sistemas Expertos {{getAnio}} <br>Gabriela Alejandra Aguilar Rodríguez
+          </div>
+        </footer>
+
+        <!--   Core   -->
+
+        <script src="./assets/js/plugins/jquery/dist/jquery.min.js"></script>
+        <script src="./assets/js/plugins/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <!--JS-->
+        <script src="./assets/js/controlador.js"></script>
+        <!--   Optional JS   -->
+        <script src="./assets/js/plugins/chart.js/dist/Chart.min.js"></script>
+        <script src="./assets/js/plugins/chart.js/dist/Chart.extension.js"></script>
+        <!--   Argon JS   -->
+        <script src="./assets/js/argon-dashboard.min.js?v=1.1.0"></script>
+        <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
+        <script>
+          window.TrackJS &&
+            TrackJS.install({
+              token: "ee6fab19c5a04ac1a32a645abde4613a",
+              application: "argon-dashboard-free"
+            });
+        </script>
+
+        <script type="text/javascript">
+          CKEDITOR.replace('editor1');
+        </script>
 </body>
+
 </html>

@@ -15,7 +15,10 @@ var UserSchema = new mongoose.Schema({
   pais: String,
   codigoPostal: String,
   acercaPerfil: String,
-  imagen: String,
+  imagen: {
+    type:String,
+    default : '/assets/img/profile.png'
+  },
   permiso: String
 });
 

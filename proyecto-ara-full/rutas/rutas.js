@@ -2,6 +2,7 @@ const express = require('express');
 
 const autenticar = require('../middlewares/AuthController');
 const usuarioCtrl = require('../controladores/UserController');
+const categoriaCtrl = require('../controladores/CategoriaController');
 //const loremCtrl = require('../controladores/lorem'); // Ejemplos
 //const loremCtrl = require('../controladores/lorem'); // Ejemplos
 
@@ -38,6 +39,14 @@ api.put('/usuario/guardarPerfil', usuarioCtrl.actualizarPerfil)
 
 // === Petición de tipo DELETE para Borrar un único recurso:
 //api.delete('/usuario/:usuarioId', usuarioCtrl.deleteUsuario)
+
+// ==================== PETICIONES PARA CATEGORIAS ====================
+
+// === Petición de tipo POST para Mostrar la categoria seleccionada:
+api.post('/categoria/verCategoria', categoriaCtrl.mostrarCategoria)
+
+// === Petición de tipo DELETE para eliminar la categoria seleccionada:
+api.delete('/categoria/eliminarCategoria', categoriaCtrl.eliminarCategoria)
 
 // ==================== PETICIONES DE AUTENTICACIÓN ====================
 // === Petición de tipo POST para Login: 

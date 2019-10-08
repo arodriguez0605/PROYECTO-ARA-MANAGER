@@ -1,7 +1,6 @@
 // MODULOS CARGADOS
 const hbs = require('hbs');
 const multer = require('multer');
-const upload = multer({ dest: './public/data/archivosSubidos/' });
 const database = require('./modules/database'); // Se conecta a Mongo
 const Multimedia = require('./controladores/MultimediaController');
 const Categoria = require('./controladores/CategoriaController');
@@ -31,6 +30,10 @@ let storageEntrada = multer.diskStorage({
 
 const uploadCategoria = multer({ storage: storageCategoria });
 const uploadEntrada = multer({ storage: storageEntrada });
+const uploadImage = multer({ dest: './public/data/archivosSubidos/bancoImagenes/' });
+const uploadVideo = multer({ dest: './public/data/archivosSubidos/bancoVideos/' });
+const uploadArchivo = multer({ dest: './public/data/archivosSubidos/bancoArchivos/' });
+
 // Puerto 
 const port = process.env.PORT || 3000;
 const app = require('./app');
@@ -125,26 +128,77 @@ app.get('/editor2', verificarAuth, (req, res) => {
   res.render('editor2');
 });
 
-app.post('/subirImagen', upload.single('cargarArchivo'), async (req, res) => {
+app.post('/subirImagen', uploadImage.single('cargarArchivo'), async (req, res) => {
   try {
     if (
       req.body.nombreArchivo !== '' &&
       req.body.descripcionArchivo !== '' &&
       req.file !== undefined
     ) {
-      console.log('req.file----->>>>>>', req.file);
       let extensionArchivo = req.file.mimetype.split('/');
       let imagenData = {
         nombre: req.body.nombreArchivo,
         descripcion: req.body.descripcionArchivo,
-        urlImagen: `/public/data/archivosSubidos/${req.file.filename}.${extensionArchivo[1]}`,
+        urlImagen: `/public/data/archivosSubidos/bancoImagenes/${req.file.filename}.${extensionArchivo[1]}`,
         extensionArchivo: `.${extensionArchivo[1]}`,
       }
 
-      console.log(`/public/data/archivosSubidos/imgCategoria/${req.file.filename}.${extensionArchivo[1]}`);
       await Multimedia.guardarImagen(imagenData, res).then(response => {
-        console.log('response--><', response);
         res.render('multimedia', { code: 200, message: 'La imagen ha sido guardada!' });
+      })
+
+    } else {
+      res.render('multimedia', { code: 400, message: 'Datos incompletos.' });
+    }
+  } catch (error) {
+    res.render('multimedia', { code: 500, message: error });
+  }
+})
+
+app.post('/subirVideo', uploadVideo.single('cargarVideo'), async (req, res) => {
+  try {
+    if (
+      req.body.nombreVideo !== '' &&
+      req.body.descripcionVideo !== '' &&
+      req.file !== undefined
+    ) {
+      let extensionVideo = req.file.mimetype.split('/');
+      let imagenData = {
+        nombre: req.body.nombreVideo,
+        descripcion: req.body.descripcionVideo,
+        urlVideo: `/public/data/archivosSubidos/bancoVideos/${req.file.filename}.${extensionVideo[1]}`,
+        extensionVideo: `.${extensionVideo[1]}`,
+      }
+
+      await Multimedia.guardarVideo(imagenData, res).then(response => {
+        res.render('multimedia', { code: 200, message: 'El video ha sido guardado!' });
+      })
+
+    } else {
+      res.render('multimedia', { code: 400, message: 'Datos incompletos.' });
+    }
+  } catch (error) {
+    res.render('multimedia', { code: 500, message: error });
+  }
+})
+
+app.post('/subirArchivo', uploadArchivo.single('cargarArchivo'), async (req, res) => {
+  try {
+    if (
+      req.body.nombreArchivo !== '' &&
+      req.body.descripcionArchivo !== '' &&
+      req.file !== undefined
+    ) {
+      let extensionArchivo = req.file.mimetype.split('/');
+      let archivoData = {
+        nombre: req.body.nombreArchivo,
+        descripcion: req.body.descripcionArchivo,
+        urlArchivo: `/public/data/archivosSubidos/bancoArchivos/${req.file.filename}.${extensionArchivo[1]}`,
+        extensionArchivo: `.${extensionArchivo[1]}`,
+      }
+
+      await Multimedia.guardarArchivo(archivoData, res).then(response => {
+        res.render('multimedia', { code: 200, message: 'El archivo ha sido guardado!' });
       })
 
     } else {

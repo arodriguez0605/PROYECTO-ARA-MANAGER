@@ -20,4 +20,44 @@ async function guardarImagen(imagenData) {
     }
 }
 
-module.exports = { guardarImagen };
+async function guardarVideo(videoData) {
+    try {
+        Multimedia.create({
+            nombre: videoData.nombre,
+            descripcion: videoData.descripcion,
+            url: videoData.urlVideo,
+            extensionArchivo: videoData.extensionVideo,
+            fechaSubido: Date.now(),
+        },
+            function (error, multimedia) {
+                if (error) {
+                    return (error);
+                }
+                return (multimedia);
+            })
+    } catch (error) {
+        return error;
+    }
+}
+
+async function guardarArchivo(archivoData) {
+    try {
+        Multimedia.create({
+            nombre: archivoData.nombre,
+            descripcion: archivoData.descripcion,
+            url: archivoData.urlArchivo,
+            extensionArchivo: archivoData.extensionArchivo,
+            fechaSubido: Date.now(),
+        },
+            function (error, multimedia) {
+                if (error) {
+                    return (error);
+                }
+                return (multimedia);
+            })
+    } catch (error) {
+        return error;
+    }
+}
+
+module.exports = { guardarImagen, guardarVideo, guardarArchivo };

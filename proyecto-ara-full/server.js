@@ -165,6 +165,10 @@ app.get('/editor2', verificarAuth, (req, res) => {
   res.render('editor2');
 });
 
+app.get('/paginaprincipal', verificarAuth, (req, res) => {
+  res.render('paginaprincipal');
+});
+
 app.post('/subirImagen', uploadImage.single('cargarImagen'), async (req, res) => {
   try {
     if (

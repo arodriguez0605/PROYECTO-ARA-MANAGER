@@ -19,8 +19,8 @@ $(document).ready(function() {
     language: {
       url: "../assets/plugin/data-tables/spanish.json",
       oPaginate: {
-          sNext: '<i class="fas fa-angle-right"></i>',
-          sPrevious: '<i class="fas fa-angle-left"></i>'
+          sNext: '<i class="far fa-angle-right"></i>',
+          sPrevious: '<i class="far fa-angle-left"></i>'
       }
     },
     columns: [
@@ -29,9 +29,9 @@ $(document).ready(function() {
       { data: "estado", title: "Estado",
       render: function ( data, type, row, meta ) {
         if(row.estado == 'Activo'){
-            return `<span class="badge badge-info"> Activo </span>`
+          return `<span class="badge badge-info"> Activo </span>`
         } else {
-            return `<span class="badge badge-secondary"> Inactivo </span>`
+          return `<span class="badge badge-warning"> Inactivo </span>`
         }
       }
     },
@@ -39,18 +39,18 @@ $(document).ready(function() {
       { data: "permiso", title:"Tipo de Usuario"},
       { data: null, title: "Opción",
       render: function ( data, type, row, meta ) {
-        if(row.estado=='Inactivo'){
-            return `<button type="button" onclick="buscarUsuario('`+ row._id +`')" class="btn btn-default btn-sm" data-toggle="modal" data-target="#exampleModalCenter"><span class="far fa-edit edit"></span></button>`+
+        if (row.estado=='Inactivo'){
+          return `<button type="button" onclick="buscarUsuario('`+ row._id +`')" class="btn btn-default btn-sm" data-toggle="modal" data-target="#exampleModalCenter"><span class="far fa-edit edit"></span></button>`+
                   `<button type="button" onclick="activarUsuario('`+ row._id +`')" class="btn btn-default btn-sm"><span class="far fa-check-circle custon-check"></span></button>`
         } else {
-            return `<button type="button" onclick="buscarUsuario('`+ row._id +`')" class="btn btn-default btn-sm" data-toggle="modal" data-target="#exampleModalCenter"><span class="far fa-edit edit"></span></button>`+
-                   `<button type="button" onclick="eliminarUsuario('`+ row._id +`')" class="btn btn-default btn-sm"><span class="far fa-trash-alt trash"></span></button>`  
+          return `<button type="button" onclick="buscarUsuario('`+ row._id +`')" class="btn btn-default btn-sm" data-toggle="modal" data-target="#exampleModalCenter"><span class="far fa-edit edit"></span></button>`+
+                  `<button type="button" onclick="eliminarUsuario('`+ row._id +`')" class="btn btn-default btn-sm"><span class="far fa-trash-alt trash"></span></button>`  
         }
       }}
     ]
   });
 
-  cargarUsuarios();
+  //cargarUsuarios();
 });
 
 $("#btn-nuevo-usuario").click(function (){

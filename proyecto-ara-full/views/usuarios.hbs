@@ -65,10 +65,14 @@
         <div class="col">
           <div class="card shadow">
             <div class="card-header border-0">
-              <h3 class="mb-0">Usuarios</h3>
+              <h3 class="mb-2">Usuarios</h3>
+
+              <table id="data-table"  class="display table-striped table-bordered w-100" >
+                <!-- Data Table -->
+              </table>
             </div>
 
-            <div class="table-responsive">
+            {{!-- <div class="table-responsive">
               <table class="table align-items-center table-flush">
                 <thead class="thead-light">
                   <tr>
@@ -116,17 +120,16 @@
                         <div>
                           <div class="progress">
                             <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>
-                          </div>--> 
-                          12/08/2019
-                        </div>
+                          </div>
+                        </div>--> 
+                        12/08/2019
                       </div>
                     </td>
-                      <td>
-                        <span class="badge badge-dot mr-4">
-                          Administrador
-                        </span>
-                      </td>
-                    
+                    <td>
+                      <span class="badge badge-dot mr-4">
+                        Administrador
+                      </span>
+                    </td>
                     <td class="text-right">
                       <div class="dropdown">
                         <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -142,140 +145,139 @@
                   </tr>
 
                   <tr>
-                      <th scope="row">
-                        <div class="media align-items-center">
-                    <!--    <a href="#" class="avatar rounded-circle mr-3">
-                            <img alt="Image placeholder" src="../assets/img/theme/bootstrap.jpg">
-                          </a>-->  
-                          <div class="media-body">
-                            <span class="mb-0 text-sm">Nombre</span>
-                          </div>
+                    <th scope="row">
+                      <div class="media align-items-center">
+                      <!--    
+                        <a href="#" class="avatar rounded-circle mr-3">
+                          <img alt="Image placeholder" src="../assets/img/theme/bootstrap.jpg">
+                        </a>-->  
+                        <div class="media-body">
+                          <span class="mb-0 text-sm">Nombre</span>
                         </div>
-                      </th>
-                      <td>
-                       correo@correo.com 
-                      </td>
-                      <td>
-                        <span class="badge badge-dot mr-4">
-                          <i class="bg-warning"></i> Deshabilitado
-                        </span>
-                      </td>
-                      <td>
-                        <div class="avatar-group">
-                          <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Alejandra Rodríguez">
-                            <img alt="Image placeholder" src="../assets/img/perfil.png" class="rounded-circle">
-                          </a>
- 
+                      </div>
+                    </th>
+                    <td>
+                      correo@correo.com 
+                    </td>
+                    <td>
+                      <span class="badge badge-dot mr-4">
+                        <i class="bg-warning"></i> Deshabilitado
+                      </span>
+                    </td>
+                    <td>
+                      <div class="avatar-group">
+                        <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Alejandra Rodríguez">
+                          <img alt="Image placeholder" src="../assets/img/perfil.png" class="rounded-circle">
+                        </a>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="d-flex align-items-center">
+                        12/08/2019
+                      </div>
+                    </td>
+                    <td>
+                      <span class="badge badge-dot mr-4">
+                        Administrador
+                      </span>
+                    </td>
+                    <td class="text-right">
+                      <div class="dropdown">
+                        <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <i class="fas fa-ellipsis-v"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                          <a class="dropdown-item" href="#">Ver</a>
+                          <a class="dropdown-item" href="#">Editar</a>
+                          <a class="dropdown-item" href="#">Eliminar</a>
                         </div>
-                      </td>
-                      <td>
-                        <div class="d-flex align-items-center">
+                      </div>
+                    </td>
+                  </tr>
 
-                            12/08/2019
-                          </div>
+                  <tr>
+                    <th scope="row">
+                      <div class="media align-items-center">
+                        <!--    
+                        <a href="#" class="avatar rounded-circle mr-3">
+                          <img alt="Image placeholder" src="../assets/img/theme/bootstrap.jpg">
+                        </a>-->  
+                        <div class="media-body">
+                          <span class="mb-0 text-sm">Nombre</span>
                         </div>
-                      </td>
-                      <td>
-                          <span class="badge badge-dot mr-4">
-                            Administrador
-                          </span>
-                        </td>
-                      
-                      <td class="text-right">
-                        <div class="dropdown">
-                          <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-ellipsis-v"></i>
-                          </a>
-                          <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                            <a class="dropdown-item" href="#">Ver</a>
-                            <a class="dropdown-item" href="#">Editar</a>
-                            <a class="dropdown-item" href="#">Eliminar</a>
-                          </div>
+                      </div>
+                    </th>
+                    <td>
+                      correo@correo.com 
+                    </td>
+                    <td>
+                      <span class="badge badge-dot mr-4">
+                        <i class="bg-warning"></i> Deshabilitado
+                      </span>
+                    </td>
+                    <td>
+                      <div class="avatar-group">
+                        <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Alejandra Rodríguez">
+                          <img alt="Image placeholder" src="../assets/img/perfil.png" class="rounded-circle">
+                        </a>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="d-flex align-items-center">
+                        12/08/2019
+                      </div>
+                    </td>
+                    <td>
+                      <span class="badge badge-dot mr-4">
+                        Administrador
+                      </span>
+                    </td>
+                    <td class="text-right">
+                      <div class="dropdown">
+                        <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <i class="fas fa-ellipsis-v"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                          <a class="dropdown-item" href="#">Ver</a>
+                          <a class="dropdown-item" href="#">Editar</a>
+                          <a class="dropdown-item" href="#">Eliminar</a>
                         </div>
-                      </td>
-                    </tr>
-
-                    <tr>
-                        <th scope="row">
-                          <div class="media align-items-center">
-                          <!--    <a href="#" class="avatar rounded-circle mr-3">
-                              <img alt="Image placeholder" src="../assets/img/theme/bootstrap.jpg">
-                            </a>-->  
-                            <div class="media-body">
-                              <span class="mb-0 text-sm">Nombre</span>
-                            </div>
-                          </div>
-                        </th>
-                        <td>
-                         correo@correo.com 
-                        </td>
-                        <td>
-                          <span class="badge badge-dot mr-4">
-                            <i class="bg-warning"></i> Deshabilitado
-                          </span>
-                        </td>
-                        <td>
-                          <div class="avatar-group">
-                            <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Alejandra Rodríguez">
-                              <img alt="Image placeholder" src="../assets/img/perfil.png" class="rounded-circle">
-                            </a>
-                          </div>
-                        </td>
-                        <td>
-                          <div class="d-flex align-items-center">
-                              12/08/2019
-                            </div>
-                          </div>
-                        </td>
-                        <td>
-                            <span class="badge badge-dot mr-4">
-                              Administrador
-                            </span>
-                          </td>
-                        
-                        <td class="text-right">
-                          <div class="dropdown">
-                            <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              <i class="fas fa-ellipsis-v"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                              <a class="dropdown-item" href="#">Ver</a>
-                              <a class="dropdown-item" href="#">Editar</a>
-                              <a class="dropdown-item" href="#">Eliminar</a>
-                            </div>
-                          </div>
-                        </td>
-                      </tr>
+                      </div>
+                    </td>
+                  </tr>
                 </tbody>
               </table>
             </div>
-
-        <div class="card-footer py-4">
-          <nav aria-label="...">
-            <ul class="pagination justify-content-end mb-0">
-              <li class="page-item disabled">
-                <a class="page-link" href="#" tabindex="-1">
-                  <i class="fas fa-angle-left "></i>
-                  <span class="sr-only">Previous</span>
-                </a>
-              </li>
-              <li class="page-item active" >
-                <a class="page-link" href="#">1</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-              </li>
-              <li class="page-item"><a class="page-link" href="#">3</a></li>
-              <li class="page-item">
-                <a class="page-link" href="#">
-                  <i class="fas fa-angle-right"></i>
-                  <span class="sr-only">Next</span>
-                </a>
-              </li>
-            </ul>
-          </nav>
+          
+            <div class="card-footer py-4">
+              <nav aria-label="...">
+                <ul class="pagination justify-content-end mb-0">
+                  <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1">
+                      <i class="fas fa-angle-left"></i>
+                      <span class="sr-only">Previous</span>
+                    </a>
+                  </li>
+                  <li class="page-item active" >
+                    <a class="page-link" href="#">1</a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item">
+                    <a class="page-link" href="#">
+                      <i class="fas fa-angle-right"></i>
+                      <span class="sr-only">Next</span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div> --}}
+          </div>
         </div>
       </div>
+    </div>
 
   
   <!-- Modal de usuarios-->
@@ -283,7 +285,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header bg-gradient-primary">
-          <h5 class="card-title text-uppercase  mb-0" style="color: white">Registrar usuario</h5>
+          <h5 class="card-title text-uppercase  mb-0" style="color: white">Gestión de Usuario</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -293,6 +295,15 @@
         <div class="card bg-secondary shadow">
           <div class="card-header bg-transparent pb-5">
             <form role="form">
+              <div class="form-group d-none">
+                <div class="input-group input-group-alternative mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="ni ni-email-83" style="color: rgb(251,196,17)" ></i></span>
+                  </div>
+                  <input id="id-usuario" class="form-control pl-2" placeholder="" type="password">
+                </div>
+              </div>
+
               <div class="form-group">
                 <div class="input-group input-group-alternative mb-3">
                   <div class="input-group-prepend">
@@ -343,6 +354,9 @@
 
               <div class="text-center">
                 <button id="btn-nuevo-usuario" type="button" class="btn btn-warning my-4">Crear usuario</button>
+              </div>
+              <div class="text-center">
+                <button id="btn-actualizar-usuario" type="button" class="btn btn-warning my-4">Actualizar usuario</button>
               </div>
             </form>
           </div>

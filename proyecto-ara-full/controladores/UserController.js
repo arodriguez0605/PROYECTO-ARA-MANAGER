@@ -8,7 +8,7 @@ var config = require('../config');
 function mostrarUsuarios (req, res) {
   User.find({}, {password: 0}, function (err, users) {
     if (err) return res.status(500).send("Hubo un problema para encontrar a los usuarios.");
-    res.status(200).send({auth: true, mensaje: 'Se devuelven los usuarios', users: users});
+    res.status(200).send({auth: true, mensaje: 'Se devuelven los usuarios', data: users});
   });
 };
 
@@ -172,21 +172,60 @@ function actualizarPerfil (req, res) {
   });
 };
 
-// ELIMINA A UN USUARIO DE LA BASE DE DATOS
-// router.delete('/:id', function (req, res) {
-//     User.findByIdAndRemove(req.params.id, function (err, user) {
-//         if (err) return res.status(500).send("Hubo un problema al eliminar el usuario.");
-//         res.status(200).send("Usuario: "+ user.name +" fué borrado.");
-//     });
-// });
-
 // ACTUALIZA UN SOLO USUARIO EN LA BASE DE DATOS
-// router.put('/:id', function (req, res) {
-//     User.findByIdAndUpdate(req.params.id, req.body, {new: true}, function (err, user) {
-//         if (err) return res.status(500).send("Hubo un problema al actualizar al usuario.");
-//         res.status(200).send(user);
-//     });
-// });
+function actualizarUsuario(req, res) {
+  var token = req.headers['x-access-token'];
+
+  if (!token) return res.status(401).send({ auth: false, mensaje: 'No se proporcionó un token.' });
+
+  jwt.verify(token, config.secret, function(err, decoded) {
+    if (err) return res.status(500).send({ auth: false, mensaje: 'Error al autenticar el token.' });
+
+    var hashedPassword;
+    if (req.body.password){
+      hashedPassword = bcrypt.hashSync(req.body.password, 8);
+    }
+    
+    if (req.body.permiso == 1){
+      req.body.permiso = 'Administrador';
+    } else if (req.body.permiso == 2){
+      req.body.permiso = 'Regular';
+    } else {
+      return res.status(400).send({auth: false, mensaje: "Campos Incorrectos."});
+    }
+        
+    User.findByIdAndUpdate(req.body._id, 
+      {
+        name: req.body.name,
+        email: req.body.email,
+        password: hashedPassword,
+        permiso: req.body.permiso
+      }, 
+      {new: true}, function (err, user) {
+      if (err) return res.status(500).send({auth: false, mensaje: "Hubo un problema al actualizar al usuario."});
+      
+      if (!user) return res.status(404).send({auth: false, mensaje: "No se encontró el usuario."});
+      
+      res.status(200).send({auth: true, mensaje: 'Usuario actualizado con exito!', user: user});
+    });
+  });
+};
+
+// CAMBIA EL ESTADO A INACTIVO DE UN USUARIO DE LA BASE DE DATOS
+function eliminarUsuario (req, res) {
+  User.findByIdAndUpdate(req.body._id, {estado: 'Inactivo'},  function (err, user) {
+    if (err) return res.status(500).send("Hubo un problema al eliminar el usuario.");
+    res.status(200).send({auth: true, mensaje: `"Usuario: "+ ${user.name} +" fué borrado."`, user: user});
+  });
+};
+
+// CAMBIA EL ESTADO A ACTIVO DE UN USUARIO DE LA BASE DE DATOS
+function activarUsuario (req, res) {
+  User.findByIdAndUpdate(req.body._id, {estado: 'Activo'},  function (err, user) {
+    if (err) return res.status(500).send("Hubo un problema al reestablecer el usuario.");
+    res.status(200).send({auth: true, mensaje: `"Usuario: "+ ${user.name} +" fué reestablecido."`, user: user});
+  });
+};
 
 
 module.exports = {
@@ -196,5 +235,8 @@ module.exports = {
   obtenerPerfil,
   buscarUsuario,
   actualizarPerfil,
-  nuevaCuenta
+  nuevaCuenta,
+  actualizarUsuario,
+  eliminarUsuario,
+  activarUsuario
 };

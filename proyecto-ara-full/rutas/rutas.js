@@ -36,7 +36,13 @@ api.get('/usuario/obtenerUsuarios', usuarioCtrl.mostrarUsuarios)
 api.put('/usuario/guardarPerfil', usuarioCtrl.actualizarPerfil)
 
  // === Petición de tipo PUT para Actualizar un único recurso:
-//api.put('/usuario/:usuarioId', usuarioCtrl.updateUsuario)
+api.put('/usuario/actualizarUsuario', usuarioCtrl.actualizarUsuario)
+
+// === Petición de tipo PUT para desActivar un único recurso:
+api.put('/usuario/eliminarUsuario', usuarioCtrl.eliminarUsuario)
+
+// === Petición de tipo PUT para Activar un único recurso:
+api.put('/usuario/activarUsuario', usuarioCtrl.activarUsuario)
 
 // === Petición de tipo DELETE para Borrar un único recurso:
 //api.delete('/usuario/:usuarioId', usuarioCtrl.deleteUsuario)

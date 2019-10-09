@@ -137,7 +137,6 @@ function ActualizarPerfil(){
         // console.log(`mensaje del servidor, auth: ${response.auth}`);
         
         if (response.auth == true){
-          //console.log(`Datos`);
           // Mensajes Validos
           $.alert({
             title: '',

@@ -1,0 +1,19 @@
+.modal-body table.table-bordered.dataTable th, .modal-body table.table-bordered.dataTable td {
+  /* padding-left: 10px */
+  height: 20px !important; 
+}
+
+table.table-bordered.dataTable th, table.table-bordered.dataTable td {
+  padding-left: 10px;
+  height: 45px; 
+}
+
+.trash {
+  color: #F52630;
+  padding-left: 1px; }
+
+.edit {
+  color: #74C748; }
+
+.custon-check {
+  color: rgb(72, 78, 199); }

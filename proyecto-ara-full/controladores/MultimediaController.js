@@ -1,5 +1,10 @@
 var Multimedia = require('../modelos/multimedia');
 
+function obtenerMultimedias() {
+    var promise = Multimedia.find().exec();
+    return promise;
+}
+
 async function guardarImagen(imagenData) {
     try {
         Multimedia.create({
@@ -60,4 +65,9 @@ async function guardarArchivo(archivoData) {
     }
 }
 
-module.exports = { guardarImagen, guardarVideo, guardarArchivo };
+module.exports = {
+    guardarImagen,
+    guardarVideo,
+    guardarArchivo,
+    obtenerMultimedias
+};

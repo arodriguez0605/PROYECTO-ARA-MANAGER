@@ -132,10 +132,10 @@ app.get('/categorias', verificarAuth, (req, res) => {
 
   categorias.then(function (categorias) {
     // console.log(categorias);
-    console.log(req.session.user);
-    res.render('categorias', { categoria: categorias });
-  })
-
+    console.log(categorias);
+    res.render('categorias', {categoria: categorias});
+ })
+  
 });
 
 app.get('/entradas', verificarAuth, (req, res) => {
@@ -321,7 +321,8 @@ app.post('/crearCategoria', uploadCategoria.single('cargarImagen'), async (req, 
       let categoriaData = {
         nombre: req.body.nombreCategoria,
         descripcion: req.body.descripcionCategoria,
-        urlImagen: `/data/archivosSubidos/imgCategoria/${req.file.filename}`
+        urlImagen: `/data/archivosSubidos/imgCategoria/${req.file.filename}`,
+        autor: req.session.user.id
       }
 
       await Categoria.crearCategoria(categoriaData, res).then(response => {
@@ -344,18 +345,22 @@ app.post('/crearEntrada', uploadEntrada.single('cargarImagen'), async (req, res)
       req.body.descripcionEntrada !== '' &&
       req.file !== undefined
     ) {
+      console.log(req.body);
+      console.log('Valor de puedeComentar '+ req.body.permitirComentario);
+      
       var puedeComentar
-      if (req.body.puedeComentar == '') {
-        puedeComentar = 1
+      if (req.body.permitirComentario == '') {
+        puedeComentar = 'Si'
       } else {
-        puedeComentar = req.body.puedeComentar
+        puedeComentar = req.body.permitirComentario
       }
 
+      console.log('Valor de estado '+ req.body.privacidad);
       var estado
-      if (req.body.estado == '') {
-        estado = 1
+      if (req.body.privacidad == '') {
+        estado = 'Público'
       } else {
-        estado = req.body.estado
+        estado = req.body.privacidad
       }
       console.log(req.body);
       console.log('req.file----->>>>>>', req.file);
@@ -366,6 +371,7 @@ app.post('/crearEntrada', uploadEntrada.single('cargarImagen'), async (req, res)
         contenido: req.body.editor1,
         categoria: req.body.categoria,
         imagen: `/data/archivosSubidos/imgEntrada/${req.file.filename}`,
+        autor: req.session.user.id,
         puedeComentar: puedeComentar,
         estado: estado,
       }

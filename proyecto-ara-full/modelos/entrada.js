@@ -11,12 +11,12 @@ var EntradaSchema = new mongoose.Schema({
     categoria: { type: mongoose.Schema.Types.ObjectId, ref :'Categoria' },
     imagen: String,
     puedeComentar:{
-        type:Number,
-        default:1,
+        type:String,
+        default:'Si',
     },
     estado:{
-        type:Number,
-        default:1,
+        type:String,
+        default:'Público',
     },
     comentarios: [{
         idUser: String,

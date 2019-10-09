@@ -3,6 +3,7 @@ const express = require('express');
 const autenticar = require('../middlewares/AuthController');
 const usuarioCtrl = require('../controladores/UserController');
 const categoriaCtrl = require('../controladores/CategoriaController');
+const entradaCtrl = require('../controladores/EntradaController');
 //const loremCtrl = require('../controladores/lorem'); // Ejemplos
 //const loremCtrl = require('../controladores/lorem'); // Ejemplos
 
@@ -47,6 +48,20 @@ api.post('/categoria/verCategoria', categoriaCtrl.mostrarCategoria)
 
 // === Petición de tipo DELETE para eliminar la categoria seleccionada:
 api.delete('/categoria/eliminarCategoria', categoriaCtrl.eliminarCategoria)
+
+// === Petición de tipo PUT para actualizar la categoria seleccionada:
+api.put('/categoria/actualizarCategoria', categoriaCtrl.actualizarCategoria)
+
+// ==================== PETICIONES PARA ENTRADAS ====================
+
+// === Petición de tipo POST para Mostrar la entrada seleccionada:
+api.post('/entrada/verEntrada', entradaCtrl.mostrarEntrada)
+
+// === Petición de tipo DELETE para eliminar la entrada:
+//api.delete('/categoria/eliminarCategoria', categoriaCtrl.eliminarCategoria)
+
+// === Petición de tipo PUT para actualizar la entrada:
+//api.put('/categoria/actualizarCategoria', categoriaCtrl.actualizarCategoria)
 
 // ==================== PETICIONES DE AUTENTICACIÓN ====================
 // === Petición de tipo POST para Login: 

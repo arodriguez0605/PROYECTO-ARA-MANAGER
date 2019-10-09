@@ -169,6 +169,11 @@ app.get('/paginaprincipal', verificarAuth, (req, res) => {
   res.render('paginaprincipal');
 });
 
+app.get('/verentrada', verificarAuth, (req, res) => {
+  res.render('verentrada');
+});
+
+
 app.post('/subirImagen', uploadImage.single('cargarImagen'), async (req, res) => {
   try {
     if (

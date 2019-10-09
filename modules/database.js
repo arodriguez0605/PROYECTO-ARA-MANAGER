@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 
-var servidor = 'localhost:27017';
-var db = 'ara_manager';
+var servidor = 'arodriguez:arodriguez2@ds333238.mlab.com:33238';
+var db = 'heroku_mqpv9nkt';
 
 class Database{
     constructor(){

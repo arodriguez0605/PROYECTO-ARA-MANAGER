@@ -158,13 +158,17 @@
             <div class="row icon-examples">
               {{#each videos}}
               <div class="col-lg-3 col-md-6">
-                <button type="button" class="btn-icon-clipboard" title="reproducir">
-                  <div>
-                    <img src="../data/archivosSubidos/bancoVideos/videoIcon.png" style="height: 50px">
-                    <span><strong>{{nombre}}</strong><br>
-                      {{descripcion}}</span>
-                  </div>
-                </button>
+                <center>
+                  <a href="javascript:void(0);" title="Clic para ver el video" style='text-decoration:none;color:black;'
+                    onclick="window.open('{{url}}', 'sickg', 'left=390, top=200, width=750, height=600, toolbar=0, resizable=1')">
+                    <div align="center">
+                      <img src="../data/archivosSubidos/bancoVideos/videoIcon.png" style="width: 50px"
+                        title="Clic para ver el vídeo" />
+                      <span><strong>{{nombre}}</strong></span>
+                    </div>
+                  </a>
+                </center>
+                {{!-- </button> --}}
               </div>
               {{/each}}
             </div>
@@ -210,13 +214,16 @@
             <div class="row icon-examples">
               {{#each archivos}}
               <div class="col-lg-3 col-md-6">
-                <button type="button" class="btn-icon-clipboard" title="Descargar archivo">
-                  <div>
-                    <img src="../data/archivosSubidos/bancoArchivos/fileIcon.png" style="height: 50px">
-                    <span><strong>{{nombre}}</strong><br>
-                      {{descripcion}}</span>
-                  </div>
-                </button>
+                <div>
+                  <a href="{{url}}" style='text-decoration:none;color:black;' target="_blank">
+                    <button type="button" class="btn-icon-clipboard" title="Descargar archivo">
+                      <img src="../data/archivosSubidos/bancoArchivos/fileIcon.png" style="width: 50px">
+                      <span>
+                        <strong>{{nombre}}</strong><br>
+                      </span>
+                    </button>
+                  </a>
+                </div>
               </div>
               {{/each}}
             </div>

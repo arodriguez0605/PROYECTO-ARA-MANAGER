@@ -173,6 +173,10 @@ app.get('/verentrada', verificarAuth, (req, res) => {
   res.render('verentrada');
 });
 
+app.get('/crearprincipal', verificarAuth, (req, res) => {
+  res.render('crearprincipal');
+});
+
 
 app.post('/subirImagen', uploadImage.single('cargarImagen'), async (req, res) => {
   try {

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="assets/img/LogoAraManager.png">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+  <!-- Icons -->
+  <link href="./assets/js/plugins/nucleo/css/nucleo.css" rel="stylesheet" />
+  <link href="./assets/js/plugins/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet" />
+  <!-- CSS Files -->
+  <link href="./assets/css/argon-dashboard.css?v=1.1.0" rel="stylesheet" />
+
+      <!-- Code Mirror CSS and Addons -->
+    <link rel="stylesheet" type="text/css" href="./codemirror/lib/codemirror.css"> 
+    <link rel="stylesheet" type="text/css" href="./codemirror/addon/scroll/simplescrollbars.css">
+  <title>
+    Editor - Ara Manager
+  </title>
+  <script src="../ckeditor/ckeditor.js"></script>
+</head>
+
+<body>
+  {{> navbar}}
+  <!--Nueva entrada y búsqueda -->
+  <div class="header bg-gradient-primary pb-8 pt-5 pt-md-8">
+    <div class="container-fluid">
+      <div class="header-body">
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid mt--7">
+    <!-- Table -->
+    <div class="row">
+      <div class="col">
+        <div class="card shadow">
+          <div class="card-header border-0">
+            <h3 class="mb-0">Página principal</h3>
+          </div>
+          <div class="table-responsive" align="center">
+            <table class="table align-items-center table-flush">
+              <thead class="thead-light">
+                <form action='/crearEntrada' method="POST" enctype="multipart/form-data">
+                  <div class="form-group">
+                    <div class="input-group input-group-alternative mb-1">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"></span>
+                      </div>
+                      <input class="form-control" placeholder="Título de la página" type="text" name=""
+                        id="" required>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="input-group input-group-alternative mb-1">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"></span>
+                      </div>
+                      <input class="form-control" placeholder="Descripción" type="text" id=""
+                        name="" required>
+                    </div>
+                  </div>
+
+                    <div class="form-group">
+                    <div class="input-group input-group-alternative mb-1">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"></span>
+                      </div>
+                      <input class="form-control" placeholder="Palabras claves" type="text" id=""
+                        name="" required>
+                    </div>
+                  </div>
+                  <!--favicon y logo-->
+                  <div class="d-flex justify-content-around" align="left">
+                        <div class="custom-file col-3">
+                        <input type="file" class="custom-file-input" id="cargarImagen" name="cargarImagen" required>
+                        <label class="custom-file-label"><i class="fas fa-arrow-circle-up"></i> Cargar favicon</label>
+                      </div>
+                        <div class="custom-file col-3">
+                        <input type="file" class="custom-file-input" id="cargarImagen" name="cargarImagen" required>
+                        <label class="custom-file-label"><i class="fas fa-arrow-circle-up"></i> Cargar logotipo</label>
+                      </div></div>
+                  <!--editor-->
+                <hr class="my-4">
+                  <div class="form-group">
+                    <div class="input-group input-group-alternative mb-1">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"></span>
+                      </div>
+                      <textarea name="editor1" id="editor1" cols="120" rows="10"></textarea>
+
+                    </div>
+                  </div>                  
+
+                  <div class="form-group">
+                    <div class="input-group input-group-alternative mb-1">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"></span>
+                      </div>
+
+                    </div>
+                  </div>
+ 
+ <!--editor de codigo-->
+
+    <!--Nueva entrada y búsqueda -->
+
+        <!--Inserte aqui-->
+   <!--Inicio de editores-->
+   <div class="container-fluid">
+        <div class="row justify-content-center mb-4">
+          <div class="col-12" style="padding: 0px;">
+            <!--<button id="generar" type="button" class="btn btn-primary">Generar Html</button>-->
+            <!--<a href="#my-header" onclick='saveTextAsFile()'>Save/Download</a>-->
+  
+            <div class="row no-gutters">
+              <div class="col-12 col-md-4">
+  
+                <div class="row no-gutters m-1 shadow-sm">
+                  <div class="col-12">
+                    <textarea id="html" name="html" placeholder="Escriba su código HTML"></textarea>
+                  </div>
+  
+                  <div class="form-group d-none">
+                    <input type="hidden" class="form-control" id="id-html" name="id-html">
+                  </div>
+  
+                </div>
+              </div>
+  
+              <div class="col-12 col-md-4">
+                <div class="row no-gutters m-1 shadow-sm">
+  
+                  <div class="col-12">
+                    <textarea id="css" name="css" placeholder="Escriba su código CSS"></textarea>
+                  </div>
+  
+                  <div class="form-group d-none">
+                    <input type="hidden" class="form-control" id="id-css" name="id-css">
+                  </div>
+                  
+                </div>
+              </div>
+  
+              <div class="col-12 col-md-4">
+                  <div class="row no-gutters m-1 shadow-sm">
+                    
+                    <div class="col-12">
+                      <textarea id="javascript" name="javascript" placeholder="Escriba su código Javascript"></textarea>
+                    </div>
+  
+                    <div class="form-group d-none">
+                      <input type="hidden" class="form-control" id="id-javascript" name="id-javascript">
+                    </div>
+                  </div>
+              </div>
+  
+              <div class="col-12 col-md-12">
+                
+                  <div class="col-12 font-weight-bolder mb-1" align="center">
+                    <span class="btn btn-warning btn-file mr-1 mb-1 font-color" onclick="correrProyecto()">
+                      <i class="fas fa-play font-blue"></i>
+                      Vista previa
+                    </span> 
+                  </div>
+                                    
+                  </div>
+                </div>
+                <div class="col-12">
+                    <iframe height="300" id="resultado" style="border:none; width: 100%; background-color: #f8f9fc">
+                     <!-- Aqui se muestra el resultado del editor -->
+                    </iframe>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+   <!--Fin de Editores-->
+        <!--Termina aqui-->
+                      </thead>
+                    </table> 
+                  </div>
+                  <div class="card-footer py-4">
+                        <nav aria-label="...">
+        
+                        </nav>
+                      </div>
+            </div>
+ <!--fin-->
+                  <div class="text-center">
+                    <input type="submit" class="btn btn-warning my-4" value="Editar página">
+
+                  </div>
+                </form>
+
+
+              </thead>
+            </table>
+          </div>
+          <div class="card-footer py-4">
+            <nav aria-label="...">
+
+            </nav>
+          </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+          <div class="text-center py-3"> Sistemas Expertos {{getAnio}} <br>Gabriela Alejandra Aguilar Rodríguez
+          </div>
+        </footer>
+
+
+<!--Scripts editor-->
+<script type="text/javascript" src="./codemirror/lib/codemirror.js"></script> 
+<script type="text/javascript" src="./codemirror/mode/javascript/javascript.js"></script>
+<script type="text/javascript" src="./codemirror/mode/xml/xml.js"></script>
+<script type="text/javascript" src="./codemirror/mode/css/css.js"></script>
+
+<script type="text/javascript" src="./codemirror/addon/scroll/simplescrollbars.js"></script>
+<script type="text/javascript" src="./codemirror/addon/display/placeholder.js"></script>
+<script type="text/javascript" src="./assets/js/editor.js"></script> 
+<!-- Fin Scripts editor-->
+        <!--   Core   -->
+
+        <script src="./assets/js/plugins/jquery/dist/jquery.min.js"></script>
+        <script src="./assets/js/plugins/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <!--JS-->
+        <script src="./assets/js/controlador.js"></script>
+        <!--   Optional JS   -->
+        <script src="./assets/js/plugins/chart.js/dist/Chart.min.js"></script>
+        <script src="./assets/js/plugins/chart.js/dist/Chart.extension.js"></script>
+        <!--   Argon JS   -->
+        <script src="./assets/js/argon-dashboard.min.js?v=1.1.0"></script>
+        <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
+        <script>
+          window.TrackJS &&
+            TrackJS.install({
+              token: "ee6fab19c5a04ac1a32a645abde4613a",
+              application: "argon-dashboard-free"
+            });
+        </script>
+
+        <script type="text/javascript">
+          CKEDITOR.replace('editor1');
+        </script>
+</body>
+
+</html>

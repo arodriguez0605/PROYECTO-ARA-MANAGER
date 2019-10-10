@@ -50,7 +50,6 @@ $(document).ready(function() {
     ]
   });
 
-  //cargarUsuarios();
 });
 
 $("#btn-nuevo-usuario").click(function (){
@@ -72,6 +71,7 @@ $("#btn-nuevo-usuario").click(function (){
     success: function (response) {
 
       if (response.auth == true){
+        $('#data-table').DataTable().ajax.reload(); // Se encarga de refrescar la tabla
         //console.log(`Datos`);
         // Mensajes Validos
         $.alert({
@@ -92,8 +92,6 @@ $("#btn-nuevo-usuario").click(function (){
             }
           }
         });
-
-        //cargarUsuarios();
         $('#exampleModalCenter').modal('hide'); // Cierra el Modal
       } else {
         
@@ -192,10 +190,6 @@ function cargarUsuarios (){
     },
     success: function (response) {
       // console.log(`mensaje del servidor, auth: ${response.auth}`);
-      
-      // console.log(response);
-      // console.log(response.users);
-      // console.log(response.users[0].email);
 
       if (response.auth == true){
         //console.log(`Datos`);
@@ -383,7 +377,7 @@ $("#btn-actualizar-usuario").click(function (){
       
       $("#btn-nuevo-usuario").removeClass("d-none");
       $("#btn-actualizar-usuario").addClass("d-none");
-      $('#data-table').DataTable().ajax.reload(); // Se encarga de refrescar las tablas
+      $('#data-table').DataTable().ajax.reload(); // Se encarga de refrescar la tabla
       $('#exampleModalCenter').modal('hide'); // Cierra el Modal
 
       if (response.auth == true){
@@ -407,7 +401,6 @@ $("#btn-actualizar-usuario").click(function (){
           }
         });
       } else {
-        
         // Mensaje de Error
         $.alert({
           title: 'Error',

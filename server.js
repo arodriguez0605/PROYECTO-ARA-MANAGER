@@ -52,6 +52,13 @@ const uploadArchivo = multer({ storage: multer.diskStorage({
       `${file.fieldname}-${Date.now()}.${file.mimetype.split('/')[1]}`);}
     })
 });
+const uploadPlantilla = multer({ storage: multer.diskStorage({
+  destination: function (req, file, callback) { callback(null, './public/data/archivosSubidos/plantillas/');},
+  filename: function (req, file, callback) {
+    callback(null,
+      `${file.fieldname}-${Date.now()}.${file.mimetype.split('/')[1]}`);}
+    })
+});
 
 const separarMultimedia = (multimedias) => {
   let bancoImagenes = [];
@@ -181,6 +188,38 @@ app.get('/verpagina', verificarAuth, (req, res) => {
   res.render('verpagina');
 });
 
+app.post('/subirPlantilla', uploadPlantilla.single('imagenesPlantilla'), async (req, res) => {
+  try {
+    if (
+      req.body.tituloPlantilla !== '' &&
+      req.body.descripcionPlantilla !== '' &&
+      req.file !== undefined
+    ) {
+      let plantillaData = {
+        nombre: req.body.tituloPlantilla,
+        descripcion: req.body.descripcionPlantilla,
+        urlImagenes: `/data/archivosSubidos/plantillas/${req.file.filename}`
+      }
+      await Plantilla.guardarPlantilla(plantillaData, res).then(async response => {
+        res.render('plantillas', {
+          code: 200,
+          message: 'La plantilla ha sido guardada!'
+        });
+      })
+
+    } else {
+      res.render('plantillas', {
+        code: 400,
+        message: 'Datos incompletos.'
+      });
+    }
+  } catch (error) {
+    res.render('plantillas', {
+      code: 500,
+      message: error
+    });
+  }
+})
 
 app.post('/subirImagen', uploadImage.single('cargarImagen'), async (req, res) => {
   try {

@@ -5,6 +5,29 @@ function obtenerPlantillas() {
     return promise;
 }
 
+async function guardarPlantilla(plantillaData) {
+    try {
+        const imagenes = { imagenes: plantillaData.urlImagenes }
+        Multimedia.create({
+            titulo: plantillaData.tituloPlantilla,
+            descripcion: plantillaData.descripcionPlantilla,
+            css: '',
+            javascript: '',
+            urlImagenes: imagenes,
+            fechaSubida: Date.now(),
+        },
+            function (error, plantilla) {
+                if (error) {
+                    return (error);
+                }
+                return (plantilla);
+            })
+    } catch (error) {
+        return error;
+    }
+}
+
 module.exports = {
     obtenerPlantillas,
+    guardarPlantilla,
 };

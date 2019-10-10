@@ -6,6 +6,7 @@ var PlantillaSchema = new mongoose.Schema({
   css: String,
   javascript: String,
   urlImagenes: Object,
+  fechaSubida: Date,
 });
 
 mongoose.model('Plantilla', PlantillaSchema);

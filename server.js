@@ -450,7 +450,11 @@ app.post('/crearEntrada', uploadEntrada.single('cargarImagen'), async (req, res)
         estado = 'Pública'
       }
 
-      //console.log(req.body);
+      if(req.body.categoria == undefined){
+        req.body.categoria = 1;
+      }
+
+      console.log('categoria: '+req.body.categoria);
       //console.log('req.file----->>>>>>', req.file);
       //let extensionArchivo = req.file.mimetype.split('/');
       let entradaData = {

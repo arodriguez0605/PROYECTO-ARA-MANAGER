@@ -101,3 +101,4 @@ function descargarArchivoJS(archivo){
   archivo.download;
   archivo.href = "data:x-application/octet-stream," + encodeURIComponent(texto);
 }
+

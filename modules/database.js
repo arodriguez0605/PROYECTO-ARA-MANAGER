@@ -1,24 +1,9 @@
 var mongoose = require('mongoose');
 
-// var servidor = 'arodriguez:arodriguez2@ds333238.mlab.com:33238';
-// var db = 'heroku_mqpv9nkt';
+var servidor = 'arodriguez:arodriguez2@ds333238.mlab.com:33238';
+var db = 'heroku_mqpv9nkt';
 
-var servidor = 'localhost:27017';
-var db = 'ara_manager';
-
-// class Database {
-//   constructor(){
-//       // Promesas
-//       mongoose.connect(`mongodb://heroku_mqpv9nkt:@Queteimporta1@ds333238.mlab.com:33238/heroku_mqpv9nkt`)
-//       .then(()=>{
-//           console.log('Se conecto a mongo');
-//       }).catch((error)=>{
-//           console.log(error);
-//       });
-//   }
-// }
-
-class Database {
+class Database{
     constructor(){
         // Promesas
         mongoose.connect(`mongodb://${servidor}/${db}`)
@@ -28,6 +13,18 @@ class Database {
             console.log(error);
         });
     }
-}
+  }
+
+// class Database {
+//     constructor(){
+//         // Promesas
+//         mongoose.connect(`mongodb://${servidor}/${db}`)
+//         .then(()=>{
+//             console.log('Se conecto a mongo');
+//         }).catch((error)=>{
+//             console.log(error);
+//         });
+//     }
+// }
 
 module.exports = new Database();

@@ -454,7 +454,6 @@ app.post('/crearEntrada', uploadEntrada.single('cargarImagen'), async (req, res)
         req.body.categoria = 1;
       }
 
-      console.log('categoria: '+req.body.categoria);
       //console.log('req.file----->>>>>>', req.file);
       //let extensionArchivo = req.file.mimetype.split('/');
       let entradaData = {
@@ -469,7 +468,6 @@ app.post('/crearEntrada', uploadEntrada.single('cargarImagen'), async (req, res)
       }
 
       await Entrada.crearEntrada(entradaData, res).then(response => {
-        //console.log('response--><', response);
         res.render('entradas', { code: 200, message: 'La Entrada ha sido creada!' });
       })
 

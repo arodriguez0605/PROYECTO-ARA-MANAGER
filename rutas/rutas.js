@@ -48,6 +48,11 @@ api.put('/usuario/activarUsuario', usuarioCtrl.activarUsuario)
 //api.delete('/usuario/:usuarioId', usuarioCtrl.deleteUsuario)
 
 // ==================== PETICIONES PARA CATEGORIAS ====================
+// === Petición de tipo GET para Mostrar la categoria seleccionada:
+api.get('/categoria/obtenerCategorias', categoriaCtrl.obtenerCategorias)
+
+// === Petición de tipo GET para Mostrar la categoria seleccionada:
+api.get('/categoria/obtenerCategoriasSelect', categoriaCtrl.obtenerCategoriasSelect)
 
 // === Petición de tipo POST para Mostrar la categoria seleccionada:
 api.post('/categoria/verCategoria', categoriaCtrl.mostrarCategoria)

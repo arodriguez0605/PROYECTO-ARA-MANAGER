@@ -1,11 +1,18 @@
 var Categoria = require('../modelos/categoria');
 
 
-function obtenerCategorias() {
+function obtenerCategorias(req, res) {
     var promise = Categoria.find()
-    .populate('autor','name imagen')
+    .populate('autor','name imagen _id')
     .exec();
     return promise;
+}
+
+function obtenerCategoriasSelect(req, res) {
+  Categoria.find({}, function (err, categorias) {
+    if (err) return res.status(500).send("Hubo un problema para encontrar a las categorias.");
+    res.status(200).send({auth: true, mensaje: 'Se devuelven las categorias', categorias: categorias});
+  });
 }
 
 async function crearCategoria(categoriaData) {
@@ -82,5 +89,6 @@ module.exports = {
     obtenerCategorias,
     mostrarCategoria,
     eliminarCategoria,
-    actualizarCategoria
+    actualizarCategoria,
+    obtenerCategoriasSelect
 };

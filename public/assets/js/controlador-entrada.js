@@ -73,7 +73,9 @@ $(document).ready(function () {
                 entradas = response.entradas
                 for (let i = 0; i < entradas.length; i++) {
                     if (entradas[i].autor._id == idUsuarioSesion) {
-
+                      if(entradas[i].categoria.nombre == undefined){
+                        entradas[i].categoria.nombre = "General"
+                      }
                         $('#entradas').append( /* html */ `
                             <tr>
                                 <th scope="row">

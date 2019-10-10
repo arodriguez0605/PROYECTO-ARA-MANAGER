@@ -84,8 +84,6 @@ function correrProyecto(){
   resultado.close();
 }
 
-
-
 function descargarArchivoHTML(archivo){
   var texto = editores[0].getValue();
   archivo.download;

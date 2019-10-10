@@ -118,6 +118,10 @@ app.get('/multimedia', verificarAuth, async (req, res) => {
   res.render('multimedia', { imagenes: multimedia.bancoImagenes, videos: multimedia.bancoVideos, archivos: multimedia.bancoArchivos });
 });
 
+app.get('/plantillas', verificarAuth, (req, res) => {
+  res.render('plantillas');
+});
+
 app.get('/perfil', verificarAuth, (req, res) => {
   res.render('perfil');
 });

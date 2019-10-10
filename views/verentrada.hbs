@@ -14,7 +14,7 @@
 <body>
     <!-- Navbar -->
 <nav class="navbar navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">
+  <a class="navbar-brand" href="/entradas">
     <img src="assets/img/LogoAraFondo.png"  height="30" class="d-inline-block align-top" alt="">
     Blog de Alejandra
   </a>
@@ -28,32 +28,18 @@
         <!-- Jumbotron -->
         <div class="col-xl-10 col-lg-10">
         <div class="jumbotron">
-            <h1 class="display-4">Título de la entrada   
-            </h1>
-            <hr class="my-4">
-            
-            <!--    <a href="#" class="avatar avatar-sm" data-toggle="tooltip"
-                data-original-title="{{autor.name}}">
-                <img alt="Image placeholder" src="..{{autor.imagen}}" class="rounded-circle">
-                </a>
-                <span class="mb-0 text-sm">{{ nombre }}</span> -->
-            <p class="lead">Publicado por: Autor</p>
-            <p> Categoría Nombre</p>
-            <img src="assets/img/imagenBlog.jpg" class="img-fluid" alt="Responsive image"> 
-
-            <p class="text-justify"> <br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, excepturi numquam molestias, totam maiores aut libero a, distinctio doloribus dolor non recusandae voluptate illo quas cum. Qui deserunt impedit praesentium temporibus ex quod quidem voluptate recusandae ullam illum ipsum officiis at corrupti ea a, consectetur unde pariatur doloribus itaque atque.
-
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate placeat maiores, quos inventore autem praesentium? Reprehenderit nam obcaecati quis ad, quas perspiciatis esse neque. Perferendis fuga eligendi atque quos, quo voluptatem tenetur eaque architecto ab aperiam harum neque maiores natus, animi cum alias consequatur quibusdam quod ut voluptatibus earum iste eum? Blanditiis nobis expedita totam sunt voluptatum suscipit voluptas nam a quaerat aperiam dolores numquam facere ad aut natus vel, ut illo sed, ipsa non! Consectetur odit, dolores, neque vitae accusamus quae beatae rem assumenda vero, eveniet nostrum pariatur fugiat obcaecati aliquam aperiam veniam animi illo alias qui? Atque, et!
-            </p>
-            <hr class="my-4">       
-            <p class="lead" align="right"> Fecha de publicación</p> 
-            <div class="form-group col-6">
-                <h2>Comentarios</h2>
-                <textarea class="form-control" id="comentariosEntradas" rows="3" cols="2" placeholder="Introduce un comentario"></textarea> 
+            <div id="inicioEntrada">
             </div>
             
+            <div id="entrada">           
+            </div>
+
+            <div class="form-group col-6" id="listaComentarios">
+            </div>
             
-            <a class="btn btn-warning btn-lg" href="#" role="button">Hacer comentario</a>
+            <div id="hacerComentario">
+              
+            </div>
 
         <p></p>
         <div class="header-body" align="left">
@@ -109,4 +95,29 @@
 
 
 </body>
+  <script src="./assets/js/plugins/jquery/dist/jquery.min.js"></script>
+  <script src="./assets/js/plugins/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+   <!--   Optional JS   -->
+  <script src="./assets/js/plugins/chart.js/dist/Chart.min.js"></script>
+  <script src="./assets/js/plugins/chart.js/dist/Chart.extension.js"></script>
+  
+  <!--   Argon JS   -->
+  <script src="./assets/js/argon-dashboard.min.js?v=1.1.0"></script>
+  <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
+  <script>
+    window.TrackJS &&
+      TrackJS.install({
+        token: "ee6fab19c5a04ac1a32a645abde4613a",
+        application: "argon-dashboard-free"
+      });
+  </script>
+
+  <!--JS-->
+  <!-- Data tables -->
+  <script src="../assets/plugin/data-tables/js/datatables.js"></script>
+  <script src="../assets/js/plugins/jquery-confirm/js/jquery-confirm.js"></script>
+  <script src="../assets/js/lightbox.js"></script>
+  <script src="../assets/js/controlador-ver-entrada.js"></script>
+  <script src="../assets/js/controlador-comentario.js"></script>
 </html>

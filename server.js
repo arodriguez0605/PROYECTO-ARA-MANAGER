@@ -143,14 +143,8 @@ app.get('/categorias', verificarAuth, (req, res) => {
 });
 
 app.get('/entradas', verificarAuth, (req, res) => {
-  var entradas = Entrada.obtenerEntradas();
-  // console.log(categorias);
 
-  entradas.then(function (entradas) {
-    console.log(entradas);
-    //console.log(req.session.user);
-    res.render('entradas', { entrada: entradas });
-  })
+    res.render('entradas', { idUsuario: req.session.user.id });
 });
 
 app.get('/editor', verificarAuth, (req, res) => {
@@ -347,6 +341,36 @@ app.post('/crearCategoria', uploadCategoria.single('cargarImagen'), async (req, 
       }
 
       await Categoria.crearCategoria(categoriaData, res).then(response => {
+        console.log('response--><', response);
+        res.render('categorias', { code: 200, message: 'La categoria ha sido creada!' });
+      })
+
+    } else {
+      res.render('categorias', { code: 400, message: 'Datos incompletos.' });
+    }
+  } catch (error) {
+    res.render('categorias', { code: 500, message: error });
+  }
+})
+
+app.post('/actualizarCategoria', uploadCategoria.single('cargarImagen'), async (req, res) => {
+  try {
+    if (
+      req.body.nombreArchivo !== '' &&
+      req.body.descripcionArchivo !== '' &&
+      req.file !== undefined
+    ) {
+      console.log(req.body);
+      console.log('req.file----->>>>>>', req.file);
+      //let extensionArchivo = req.file.mimetype.split('/');
+      let categoriaData = {
+        nombre: req.body.nombreCategoria,
+        descripcion: req.body.descripcionCategoria,
+        urlImagen: `/data/archivosSubidos/imgCategoria/${req.file.filename}`,
+        autor: req.session.user.id
+      }
+
+      await Categoria.actualizarCategoria(req.body.idCategoria, categoriaData, res).then(response => {
         console.log('response--><', response);
         res.render('categorias', { code: 200, message: 'La categoria ha sido creada!' });
       })

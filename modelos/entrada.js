@@ -20,7 +20,11 @@ var EntradaSchema = new mongoose.Schema({
         default: 'Público',
     },
     comentarios: [{
-        idUser: String,
+        idUser: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+        fechaComentario:{
+            type:Date,
+            default:Date.now()
+        },
         comentario: String 
     }],
 });

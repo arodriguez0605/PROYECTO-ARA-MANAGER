@@ -56,18 +56,25 @@ function eliminarCategoria (req, res) {
     });
 }
 
-function actualizarCategoria (req, res) {
-    var idCategoria = req.body.idCategoria
-  
-      Categoria.findByIdAndDelete(
-          idCategoria, req.body,
-          function (err, categoria) {
-        if (err) return res.status(500).send({mensaje: "Hubo un problema al mostrar la categoria."});
-  
-            if (!categoria) return res.status(404).send({mensaje: "No se encontró la categoria."});
-  
-        res.status(200).send({auth:true, mensaje:'Se actualizo la categoria'});
-    });
+async function actualizarCategoria(req, categoriaData) {
+    try {
+        Categoria.findByIdAndUpdate(
+            req.body.idCategoria,
+        {
+            autor: categoriaData.autor,
+            nombre: categoriaData.nombre,
+            descripcion: categoriaData.descripcion,
+            url: categoriaData.urlImagen,
+        },
+            function (error, categoria) {
+                if (error) {
+                    return (error);
+                }
+                return (categoria);
+            })
+    } catch (error) {
+        return error;
+    }
 }
 
 module.exports = { 

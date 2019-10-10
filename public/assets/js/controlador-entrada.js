@@ -25,7 +25,7 @@ $(document).ready(function () {
         }
       },
       columns: [
-        { data: "autor.name", title: "Autor" },
+        { data: "autor", title: "Autor" },
         { data: "nombre", title: "Nombre" },
         { data: "descripcion", title: "Descripción" },
         // { data: "categoria", title: "Categoría" },

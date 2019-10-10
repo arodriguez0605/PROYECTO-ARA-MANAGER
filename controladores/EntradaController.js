@@ -1,5 +1,4 @@
 var Entrada = require('../modelos/entrada');
-var User = require('../modelos/usuario');
 
 <<<<<<< HEAD
 function obtenerEntradas(req, res) {
@@ -15,23 +14,11 @@ function obtenerEntradas(req, res) {
 =======
 // DEVUELVE A TODOS LAS ENTRADAS DE LA BASE DE DATOS
 function mostrarEntradas (req, res) {
-  Entrada.find({})
-  .populate('autor')
-  .exec(function (err, entradas){
+  Entrada.find({}, function (err, entradas) {
     if (err) return res.status(500).send({auth: false, mensaje: "Hubo un problema al mostrar la entrada."});
-
     res.status(200).send({auth: true, mensaje: 'Se retornan las entradas', data: entradas});
   });
 }
-
-// DEVUELVE A TODOS LAS ENTRADAS DE LA BASE DE DATOS
-// function mostrarEntradas (req, res) {
-//   Entrada.find({}, function (err, entradas) {
-//     if (err) return res.status(500).send({auth: false, mensaje: "Hubo un problema al mostrar la entrada."});
-//     entradas.autor = User.name;
-//     res.status(200).send({auth: true, mensaje: 'Se retornan las entradas', data: entradas});
-//   });
-// }
 
 function obtenerEntradas() {
     var promise = Entrada.find()

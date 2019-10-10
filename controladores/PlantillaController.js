@@ -8,7 +8,7 @@ function obtenerPlantillas() {
 async function guardarPlantilla(plantillaData) {
     try {
         const imagenes = { imagenes: plantillaData.urlImagenes }
-        Multimedia.create({
+        Plantilla.create({
             titulo: plantillaData.tituloPlantilla,
             descripcion: plantillaData.descripcionPlantilla,
             css: '',

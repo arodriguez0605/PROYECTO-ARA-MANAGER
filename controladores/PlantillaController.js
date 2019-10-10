@@ -9,8 +9,8 @@ async function guardarPlantilla(plantillaData) {
     try {
         const imagenes = { imagenes: plantillaData.urlImagenes }
         Plantilla.create({
-            titulo: plantillaData.tituloPlantilla,
-            descripcion: plantillaData.descripcionPlantilla,
+            titulo: plantillaData.titulo,
+            descripcion: plantillaData.descripcion,
             css: '',
             javascript: '',
             urlImagenes: imagenes,

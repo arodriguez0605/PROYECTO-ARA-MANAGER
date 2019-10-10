@@ -128,6 +128,7 @@ app.get('/multimedia', verificarAuth, async (req, res) => {
 
 app.get('/plantillas', verificarAuth, async (req, res) => {
   const plantillas = await Plantilla.obtenerPlantillas();
+  console.log('plantillas-->>', plantillas);
   res.render('plantillas', { plantillas } );
 });
 
@@ -196,7 +197,7 @@ app.post('/subirPlantilla', uploadPlantilla.single('imagenesPlantilla'), async (
       req.file !== undefined
     ) {
       let plantillaData = {
-        nombre: req.body.tituloPlantilla,
+        titulo: req.body.tituloPlantilla,
         descripcion: req.body.descripcionPlantilla,
         urlImagenes: `/data/archivosSubidos/plantillas/${req.file.filename}`
       }

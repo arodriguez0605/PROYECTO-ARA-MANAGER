@@ -64,7 +64,7 @@ api.put('/categoria/actualizarCategoria', categoriaCtrl.actualizarCategoria)
 api.get('/entrada/verEntradas', entradaCtrl.obtenerEntradas)
 
 // === Petición de tipo POST para Mostrar la entrada seleccionada:
-api.get('/entrada/mostrarEntradas', entradaCtrl.mostrarEntradas)
+api.get('/entrada/mostrarEntradas', entradaCtrl.mostrarEntrada)
 
 // === Petición de tipo POST para Comentar la entrada seleccionada:
 api.post('/entrada/comentar', entradaCtrl.comentarEntrada)

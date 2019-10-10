@@ -7,8 +7,8 @@ var CategoriaSchema = new mongoose.Schema({
     descripcion: String,
     url: String,
     fechaCreacion: {
-        type:Date,
-        default:Date.now()
+        type: Date,
+        default: Date.now()
     }
 });
 

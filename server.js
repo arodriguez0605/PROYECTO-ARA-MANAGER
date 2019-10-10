@@ -118,6 +118,10 @@ app.get('/multimedia', verificarAuth, async (req, res) => {
   res.render('multimedia', { imagenes: multimedia.bancoImagenes, videos: multimedia.bancoVideos, archivos: multimedia.bancoArchivos });
 });
 
+app.get('/plantillas', verificarAuth, (req, res) => {
+  res.render('plantillas');
+});
+
 app.get('/perfil', verificarAuth, (req, res) => {
   res.render('perfil');
 });
@@ -169,6 +173,10 @@ app.get('/verentrada', verificarAuth, (req, res) => {
 
 app.get('/crearprincipal', verificarAuth, (req, res) => {
   res.render('crearprincipal');
+});
+
+app.get('/verpagina', verificarAuth, (req, res) => {
+  res.render('verpagina');
 });
 
 
@@ -382,39 +390,40 @@ app.post('/crearEntrada', uploadEntrada.single('cargarImagen'), async (req, res)
       req.body.descripcionEntrada !== '' &&
       req.file !== undefined
     ) {
-      console.log(req.body);
-      console.log('Valor de puedeComentar '+ req.body.permitirComentario);
+      //console.log(req.body);
+      //console.log('Valor de puedeComentar '+ req.body.permitirComentario);
       
-      var puedeComentar
-      if (req.body.permitirComentario == '') {
+      let puedeComentar;
+      if (req.body.puedeComentar == 1) {
         puedeComentar = 'Si'
       } else {
-        puedeComentar = req.body.permitirComentario
+        puedeComentar = 'No'
       }
 
-      console.log('Valor de estado '+ req.body.privacidad);
-      var estado
-      if (req.body.privacidad == '') {
-        estado = 'Público'
+      //console.log('Valor de estado '+ req.body.privacidad);
+      let estado;
+      if (req.body.estado == 1) {
+        estado = 'Privada'
       } else {
-        estado = req.body.privacidad
+        estado = 'Pública'
       }
-      console.log(req.body);
-      console.log('req.file----->>>>>>', req.file);
+
+      //console.log(req.body);
+      //console.log('req.file----->>>>>>', req.file);
       //let extensionArchivo = req.file.mimetype.split('/');
       let entradaData = {
         nombre: req.body.nombreEntrada,
-        descripcion: req.body.descripcionEntrada,
+        autor: req.session.user.id,
         contenido: req.body.editor1,
         categoria: req.body.categoria,
         imagen: `/data/archivosSubidos/imgEntrada/${req.file.filename}`,
-        autor: req.session.user.id,
+        descripcion: req.body.descripcionEntrada,
         puedeComentar: puedeComentar,
         estado: estado,
       }
 
       await Entrada.crearEntrada(entradaData, res).then(response => {
-        console.log('response--><', response);
+        //console.log('response--><', response);
         res.render('entradas', { code: 200, message: 'La Entrada ha sido creada!' });
       })
 

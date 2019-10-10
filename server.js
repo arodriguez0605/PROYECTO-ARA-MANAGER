@@ -3,6 +3,7 @@ const hbs = require('hbs');
 const multer = require('multer');
 const database = require('./modules/database'); // Se conecta a Mongo
 const Multimedia = require('./controladores/MultimediaController');
+const Plantilla = require('./controladores/PlantillaController');
 const Categoria = require('./controladores/CategoriaController');
 const Entrada = require('./controladores/EntradaController');
 
@@ -118,8 +119,9 @@ app.get('/multimedia', verificarAuth, async (req, res) => {
   res.render('multimedia', { imagenes: multimedia.bancoImagenes, videos: multimedia.bancoVideos, archivos: multimedia.bancoArchivos });
 });
 
-app.get('/plantillas', verificarAuth, (req, res) => {
-  res.render('plantillas');
+app.get('/plantillas', verificarAuth, async (req, res) => {
+  const plantillas = await plantillas.obtenerPlantillas();
+  res.render('plantillas', { plantillas } );
 });
 
 app.get('/perfil', verificarAuth, (req, res) => {

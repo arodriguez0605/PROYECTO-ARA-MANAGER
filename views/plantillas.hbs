@@ -59,7 +59,7 @@
                 <div>
                   <a href="{{url}}" data-lightbox="bancoImagen" style='text-decoration:none;color:black;'>
                     <button type="button" class="btn-icon-clipboard" title="Abrir imagen">
-                      <img src="{{url}}" style="width: 50px">
+                      <img src="../data/archivosSubidos/plantillas/plantillaDefault.jpg" style="width: 50px">
                       <span>
                         <strong>{{nombre}}</strong><br>
                       </span>
@@ -105,13 +105,12 @@
                     </div>
                     <input class="form-control" placeholder="Descripción" type="text" id="descripcionPlantilla"
                       name="descripcionPlantilla" required>
-
                   </div>
                 </div>
                 <div class="input-group mb-3">
                   <div class="custom-file">
                     <input type="file" class="custom-file-input" id="imagenesPlantilla" name="imagenesPlantilla"
-                      accept="image/*" required>
+                      accept="image/*" multiple required>
                     <label class="custom-file-label"><i class="fas fa-arrow-circle-up"></i> Seleccionar imagenes...
                     </label>
                   </div>

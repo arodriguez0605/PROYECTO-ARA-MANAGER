@@ -120,7 +120,7 @@ app.get('/multimedia', verificarAuth, async (req, res) => {
 });
 
 app.get('/plantillas', verificarAuth, async (req, res) => {
-  const plantillas = await plantillas.obtenerPlantillas();
+  const plantillas = await Plantilla.obtenerPlantillas();
   res.render('plantillas', { plantillas } );
 });
 

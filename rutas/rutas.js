@@ -61,7 +61,7 @@ api.put('/categoria/actualizarCategoria', categoriaCtrl.actualizarCategoria)
 // ==================== PETICIONES PARA ENTRADAS ====================
 
 // === Petición de tipo POST para Mostrar la entrada seleccionada:
-api.post('/entrada/verEntrada', entradaCtrl.mostrarEntrada)
+api.get('/entrada/mostrarEntradas', entradaCtrl.mostrarEntradas)
 
 // === Petición de tipo DELETE para eliminar la entrada:
 //api.delete('/categoria/eliminarCategoria', categoriaCtrl.eliminarCategoria)

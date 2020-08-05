@@ -57,7 +57,7 @@
     "debug": "^4.1.1",
     "ejs": "^2.7.1",
     "express": "^4.17.1",
-    "express-fileupload": "^1.1.6-alpha.5",
+    "express-fileupload": "^1.1.9",
     "express-session": "^1.16.2",
     "hbs": "^4.0.4",
     "jsonwebtoken": "^8.5.1",
